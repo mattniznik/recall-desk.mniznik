@@ -1,0 +1,23 @@
+{
+  "Count": 1,
+  "Message": "Results returned successfully",
+  "results": [
+    {
+      "Manufacturer": "Hyundai Motor America",
+      "NHTSACampaignNumber": "20V543000",
+      "parkIt": false,
+      "parkOutSide": true,
+      "overTheAirUpdate": false,
+      "NHTSAActionNumber": "PE19003",
+      "ReportReceivedDate": "04/09/2020",
+      "Component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP:CONTROL UNIT/MODULE",
+      "Summary": "Hyundai Motor America (Hyundai) recalled certain 2019-2021 Tucson vehicles on September 4, 2020.  On December 30, 2020, Hyundai expanded the recall population, and added certain 2016-2018 Tucson vehicles.  The Anti-lock Brake Hydraulic Electronic Control Unit (HECU) could corrode internally and cause an electrical short, possibly resulting in an engine compartment fire.",
+      "Consequence": "An engine compartment fire can increase the risk of injury or crash.",
+      "Remedy": "Hyundai will notify owners, and dealers will replace the HECU fuse.  For 2019-2021 model years, the Electronic Stability Control (ESC) software will also be updated.  Recall repairs will be performed free of charge.  Owners are advised to park outside and away from structures as a precaution until the recall repair is complete.  The recall began November 2, 2020.  Owners may contact Hyundai customer service at 1-855-371-9460.  Hyundai's number for this recall is 195.",
+      "Notes": "Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.",
+      "ModelYear": "2019",
+      "Make": "HYUNDAI",
+      "Model": "TUCSON"
+    }
+  ]
+}

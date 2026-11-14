@@ -1,0 +1,18 @@
+{
+  "Count": 3,
+  "Message": "Results returned successfully",
+  "Results": [
+    {
+      "VehicleDescription": "2017 Honda Civic 2 DR FWD",
+      "VehicleId": 11469
+    },
+    {
+      "VehicleDescription": "2017 Honda Civic 5 HB FWD",
+      "VehicleId": 11168
+    },
+    {
+      "VehicleDescription": "2017 Honda Civic 4 DR FWD",
+      "VehicleId": 11167
+    }
+  ]
+}

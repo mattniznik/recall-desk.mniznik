@@ -1,0 +1,1488 @@
+{
+  "note": "Fictional catalog for a demo. Part numbers, prices and fitment are invented.",
+  "parts": [
+    {
+      "sku": "DP-BRK-F-CIV-SC",
+      "name": "Front brake pads, ceramic",
+      "price": 42.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-CIV-SC",
+      "name": "Rear brake pads, ceramic",
+      "price": 38.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-CIV-SC",
+      "name": "Front brake rotor",
+      "price": 64.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-CIV-SC",
+      "name": "Rear brake rotor",
+      "price": 54.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-CIV-SC",
+      "name": "Front wiper blade set",
+      "price": 24.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-CIV-SC",
+      "name": "Cabin air filter",
+      "price": 16.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-CIV-SC",
+      "name": "Engine air filter",
+      "price": 19.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-CIV-SC",
+      "name": "Oil filter",
+      "price": 8.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-CIV-SC",
+      "name": "Spark plug set",
+      "price": 34.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-CIV-SC",
+      "name": "12V battery",
+      "price": 159.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-CIV-SC",
+      "name": "Headlight bulb pair",
+      "price": 29.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "sedan",
+          "coupe"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-CIV-HB",
+      "name": "Front brake pads, ceramic",
+      "price": 44.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-CIV-HB",
+      "name": "Rear brake pads, ceramic",
+      "price": 39.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-CIV-HB",
+      "name": "Front brake rotor",
+      "price": 67.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-CIV-HB",
+      "name": "Rear brake rotor",
+      "price": 56.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-CIV-HB",
+      "name": "Front wiper blade set",
+      "price": 25.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-R-CIV-HB",
+      "name": "Rear wiper blade",
+      "price": 12.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-CIV-HB",
+      "name": "Cabin air filter",
+      "price": 16.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-CIV-HB",
+      "name": "Engine air filter",
+      "price": 19.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-CIV-HB",
+      "name": "Oil filter",
+      "price": 8.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-CIV-HB",
+      "name": "Spark plug set",
+      "price": 35.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-CIV-HB",
+      "name": "12V battery",
+      "price": 166.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-CIV-HB",
+      "name": "Headlight bulb pair",
+      "price": 30.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-CTR",
+      "name": "Front brake pads, ceramic",
+      "price": 75.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-CTR",
+      "name": "Rear brake pads, ceramic",
+      "price": 68.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-CTR",
+      "name": "Front brake rotor",
+      "price": 115.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-CTR",
+      "name": "Rear brake rotor",
+      "price": 97.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-CTR",
+      "name": "Front wiper blade set",
+      "price": 43.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-R-CTR",
+      "name": "Rear wiper blade",
+      "price": 21.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-CTR",
+      "name": "Cabin air filter",
+      "price": 28.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-CTR",
+      "name": "Engine air filter",
+      "price": 34.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-CTR",
+      "name": "Oil filter",
+      "price": 14.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-CTR",
+      "name": "Spark plug set",
+      "price": 61.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-CTR",
+      "name": "12V battery",
+      "price": 286.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-CTR",
+      "name": "Headlight bulb pair",
+      "price": 52.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Civic Type R",
+        "years": [
+          2017,
+          2021
+        ],
+        "bodies": [
+          "hatchback"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-ACC",
+      "name": "Front brake pads, ceramic",
+      "price": 48.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-ACC",
+      "name": "Rear brake pads, ceramic",
+      "price": 43.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-ACC",
+      "name": "Front brake rotor",
+      "price": 73.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-ACC",
+      "name": "Rear brake rotor",
+      "price": 62.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-ACC",
+      "name": "Front wiper blade set",
+      "price": 27.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-ACC",
+      "name": "Cabin air filter",
+      "price": 18.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-ACC",
+      "name": "Engine air filter",
+      "price": 21.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-ACC",
+      "name": "Oil filter",
+      "price": 9.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-ACC",
+      "name": "Spark plug set",
+      "price": 39.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-ACC",
+      "name": "12V battery",
+      "price": 182.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-ACC",
+      "name": "Headlight bulb pair",
+      "price": 33.99,
+      "fits": {
+        "make": "Honda",
+        "model": "Accord",
+        "years": [
+          2018,
+          2022
+        ],
+        "bodies": [
+          "sedan"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-CRV",
+      "name": "Front brake pads, ceramic",
+      "price": 50.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-CRV",
+      "name": "Rear brake pads, ceramic",
+      "price": 45.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-CRV",
+      "name": "Front brake rotor",
+      "price": 76.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-CRV",
+      "name": "Rear brake rotor",
+      "price": 64.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-CRV",
+      "name": "Front wiper blade set",
+      "price": 28.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-R-CRV",
+      "name": "Rear wiper blade",
+      "price": 14.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-CRV",
+      "name": "Cabin air filter",
+      "price": 19.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-CRV",
+      "name": "Engine air filter",
+      "price": 22.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-CRV",
+      "name": "Oil filter",
+      "price": 9.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-CRV",
+      "name": "Spark plug set",
+      "price": 40.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-CRV",
+      "name": "12V battery",
+      "price": 190.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-CRV",
+      "name": "Headlight bulb pair",
+      "price": 34.99,
+      "fits": {
+        "make": "Honda",
+        "model": "CR-V",
+        "years": [
+          2017,
+          2022
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-RNG",
+      "name": "Front brake pads, ceramic",
+      "price": 46.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-RNG",
+      "name": "Rear brake pads, ceramic",
+      "price": 41.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-RNG",
+      "name": "Front brake rotor",
+      "price": 70.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-RNG",
+      "name": "Rear brake rotor",
+      "price": 59.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-RNG",
+      "name": "Front wiper blade set",
+      "price": 26.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-RNG",
+      "name": "Cabin air filter",
+      "price": 17.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-RNG",
+      "name": "Engine air filter",
+      "price": 20.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-RNG",
+      "name": "Oil filter",
+      "price": 8.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-RNG",
+      "name": "Spark plug set",
+      "price": 37.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-RNG",
+      "name": "12V battery",
+      "price": 174.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-RNG",
+      "name": "Headlight bulb pair",
+      "price": 31.99,
+      "fits": {
+        "make": "Ford",
+        "model": "Ranger",
+        "years": [
+          2006,
+          2011
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-F150",
+      "name": "Front brake pads, ceramic",
+      "price": 54.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-F150",
+      "name": "Rear brake pads, ceramic",
+      "price": 49.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-F150",
+      "name": "Front brake rotor",
+      "price": 83.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-F150",
+      "name": "Rear brake rotor",
+      "price": 70.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-F150",
+      "name": "Front wiper blade set",
+      "price": 31.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-F150",
+      "name": "Cabin air filter",
+      "price": 20.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-F150",
+      "name": "Engine air filter",
+      "price": 24.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-F150",
+      "name": "Oil filter",
+      "price": 10.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-F150",
+      "name": "Spark plug set",
+      "price": 44.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-F150",
+      "name": "12V battery",
+      "price": 206.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-F150",
+      "name": "Headlight bulb pair",
+      "price": 37.99,
+      "fits": {
+        "make": "Ford",
+        "model": "F-150",
+        "years": [
+          2015,
+          2020
+        ],
+        "bodies": [
+          "pickup"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-F-TUC",
+      "name": "Front brake pads, ceramic",
+      "price": 48.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BRK-R-TUC",
+      "name": "Rear brake pads, ceramic",
+      "price": 43.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-F-TUC",
+      "name": "Front brake rotor",
+      "price": 73.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-ROT-R-TUC",
+      "name": "Rear brake rotor",
+      "price": 62.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-F-TUC",
+      "name": "Front wiper blade set",
+      "price": 27.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-WIP-R-TUC",
+      "name": "Rear wiper blade",
+      "price": 13.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-C-TUC",
+      "name": "Cabin air filter",
+      "price": 18.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-E-TUC",
+      "name": "Engine air filter",
+      "price": 21.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-FLT-O-TUC",
+      "name": "Oil filter",
+      "price": 9.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-PLG-TUC",
+      "name": "Spark plug set",
+      "price": 39.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BAT-TUC",
+      "name": "12V battery",
+      "price": 182.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    },
+    {
+      "sku": "DP-BLB-H-TUC",
+      "name": "Headlight bulb pair",
+      "price": 33.99,
+      "fits": {
+        "make": "Hyundai",
+        "model": "Tucson",
+        "years": [
+          2016,
+          2021
+        ],
+        "bodies": [
+          "suv"
+        ]
+      }
+    }
+  ]
+}

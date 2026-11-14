@@ -1,0 +1,35 @@
+{
+  "Count": 1,
+  "Message": "Results returned successfully",
+  "Results": [
+    {
+      "OverallRating": "5",
+      "OverallFrontCrashRating": "5",
+      "FrontCrashDriversideRating": "5",
+      "FrontCrashPassengersideRating": "5",
+      "OverallSideCrashRating": "5",
+      "SideCrashDriversideRating": "5",
+      "SideCrashPassengersideRating": "5",
+      "combinedSideBarrierAndPoleRating-Front": "5",
+      "combinedSideBarrierAndPoleRating-Rear": "5",
+      "sideBarrierRating-Overall": "5",
+      "RolloverRating": "5",
+      "RolloverRating2": "Not Rated",
+      "RolloverPossibility": 0.095,
+      "RolloverPossibility2": 0,
+      "dynamicTipResult": "No Tip",
+      "SidePoleCrashRating": "5",
+      "NHTSAElectronicStabilityControl": "Standard",
+      "NHTSAForwardCollisionWarning": "Optional",
+      "NHTSALaneDepartureWarning": "Optional",
+      "ComplaintsCount": 606,
+      "RecallsCount": 6,
+      "InvestigationCount": 0,
+      "ModelYear": 2017,
+      "Make": "HONDA",
+      "Model": "CIVIC",
+      "VehicleDescription": "2017 Honda Civic 5 HB FWD",
+      "VehicleId": 11168
+    }
+  ]
+}

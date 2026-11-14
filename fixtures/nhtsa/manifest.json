@@ -1,0 +1,51 @@
+{
+  "recordedAt": "2026-11-14T01:21:31.157Z",
+  "files": {
+    "civic2017Recalls": {
+      "file": "recalls-honda-civic-2017.json",
+      "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=honda&model=civic&modelYear=2017"
+    },
+    "civic2017Complaints": {
+      "file": "complaints-honda-civic-2017.json",
+      "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=civic&modelYear=2017"
+    },
+    "civic2017Ratings": {
+      "file": "ratings-honda-civic-2017.json",
+      "url": "https://api.nhtsa.gov/SafetyRatings/modelyear/2017/make/honda/model/civic"
+    },
+    "honda2017Models": {
+      "file": "models-honda-2017.json",
+      "url": "https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/honda/modelyear/2017?format=json"
+    },
+    "vinCivicSedan": {
+      "file": "vin-19XFC2F5_HE.json",
+      "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/19XFC2F5*HE?format=json"
+    },
+    "vinCivicHatchback": {
+      "file": "vin-SHHFK7H5_HU.json",
+      "url": "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/SHHFK7H5*HU?format=json"
+    },
+    "ranger2006Recalls": {
+      "file": "recalls-ford-ranger-2006.json",
+      "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=ranger&modelYear=2006"
+    },
+    "tucson2019Recalls": {
+      "file": "recalls-hyundai-tucson-2019.json",
+      "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=tucson&modelYear=2019"
+    },
+    "civic2017RatingDetail": {
+      "file": "ratings-vehicle-11469.json",
+      "url": "https://api.nhtsa.gov/SafetyRatings/VehicleId/11469"
+    },
+    "civic2017Rating11168": {
+      "file": "ratings-vehicle-11168.json",
+      "url": "https://api.nhtsa.gov/SafetyRatings/VehicleId/11168",
+      "recordedAt": "2026-11-14T01:35:35.751Z"
+    },
+    "civic2017Rating11167": {
+      "file": "ratings-vehicle-11167.json",
+      "url": "https://api.nhtsa.gov/SafetyRatings/VehicleId/11167",
+      "recordedAt": "2026-11-14T01:35:36.295Z"
+    }
+  }
+}

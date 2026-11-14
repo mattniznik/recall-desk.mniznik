@@ -1,0 +1,15 @@
+node_modules/
+
+# The dev workspace key lives here, under RECALL_DESK_ANTHROPIC_KEY and never
+# ANTHROPIC_API_KEY: that name would outrank a Claude Code login on this machine
+# and quietly switch it to paid-per-use billing.
+.env.local
+.env
+
+*.tmp
+
+# Built page; deploy.sh builds it fresh.
+web/dist/
+
+# Built Lambda bundle; deploy.sh builds it fresh.
+dist/

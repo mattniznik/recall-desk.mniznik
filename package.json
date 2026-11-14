@@ -1,0 +1,31 @@
+{
+  "name": "recall-desk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A support agent for a fictional car parts store. It answers from NHTSA's live recall data, can only cite what its tools return, and publishes its eval results.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "test": "node --test --experimental-strip-types --disable-warning=ExperimentalWarning \"test/**/*.test.ts\"",
+    "fixtures:refresh": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/record-fixtures.ts",
+    "catalog:build": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/build-catalog.ts",
+    "ask": "node --experimental-strip-types --disable-warning=ExperimentalWarning src/cli/ask.ts",
+    "web:dev": "npm run dev -w web",
+    "web:build": "npm run build -w web",
+    "replays:scripted": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/record-replays.ts",
+    "live:run": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/live-run.ts",
+    "build:lambda": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/build-lambda.ts",
+    "eval:sub": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/eval-subscription.ts",
+    "site:export": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/export-site.ts"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "web"
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  }
+}
