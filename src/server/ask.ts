@@ -51,7 +51,7 @@ export type AskDeps = {
   onFailure?: (detail: UpstreamDetail) => void;
 };
 
-export type UpstreamDetail = { status: number | undefined; type: string; message: string };
+export type UpstreamDetail = { status: number | undefined; type: string; message: string; cause?: string };
 
 const MESSAGES: Record<ErrorCode, string> = {
   bad_request: "That request could not be read. Questions are up to 500 characters.",
@@ -109,17 +109,39 @@ function errorCodeOf(e: unknown): ErrorCode {
   return "failed";
 }
 
+// An error message made safe for the log. Quoted text goes first, because undici quotes a whole
+// header value (the key included, newlines and all) when it refuses one; then anything shaped like
+// a key, and any 24+ character run of key alphabet, which catches a key's tail split off by a
+// newline. Hostnames and error codes survive: their runs are short.
+const cleanMessage = (s: unknown, max: number): string =>
+  String(s ?? "")
+    .replace(/"[^"]*"/g, '"[removed]"')
+    .replace(/sk-ant-[A-Za-z0-9_-]*/g, "sk-ant-[removed]")
+    .replace(/[A-Za-z0-9_-]{24,}/g, "[removed]")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, max);
+
+type ErrorLike = { status?: number; name?: string; code?: string; message?: string; cause?: unknown; error?: { error?: { type?: string; message?: string } } };
+
 // Why a run failed, short enough for one log line: the HTTP status, Anthropic's error type (or the
-// JavaScript error name), and the start of the message with anything key-shaped removed. Added
-// after the first production question failed with nothing in the log but "failed" (2026-11-14).
+// JavaScript error name), the start of the message, and for a connection failure the errors behind
+// it (`cause`), each with its code. Added after the first production question failed with nothing
+// in the log but "failed"; the cause chain after the second said only "Connection error." (both
+// 2026-11-14).
 export function upstreamDetail(e: unknown): UpstreamDetail {
-  const err = e as { status?: number; name?: string; message?: string; error?: { error?: { type?: string; message?: string } } };
-  const raw = String(err?.error?.error?.message ?? err?.message ?? "");
-  return {
+  const err = e as ErrorLike;
+  const detail: UpstreamDetail = {
     status: typeof err?.status === "number" ? err.status : undefined,
     type: err?.error?.error?.type ?? err?.name ?? "Error",
-    message: raw.replace(/sk-ant-[A-Za-z0-9_-]+/g, "sk-ant-[removed]").replace(/\s+/g, " ").trim().slice(0, 160),
+    message: cleanMessage(err?.error?.error?.message ?? err?.message, 160),
   };
+  const chain: string[] = [];
+  for (let c = err?.cause as ErrorLike | undefined, i = 0; c && typeof c === "object" && i < 3; c = c.cause as ErrorLike | undefined, i++) {
+    chain.push(`${c.name ?? "Error"}${c.code ? `(${c.code})` : ""}: ${cleanMessage(c.message, 120)}`);
+  }
+  if (chain.length) detail.cause = chain.join(" <- ");
+  return detail;
 }
 
 export async function handleAsk(body: unknown, ip: string, deps: AskDeps, write: (e: AskEvent) => void): Promise<void> {

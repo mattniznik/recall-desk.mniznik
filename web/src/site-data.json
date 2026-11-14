@@ -1,7 +1,7 @@
 {
   "tests": {
-    "tests": 232,
-    "pass": 232,
+    "tests": 234,
+    "pass": 234,
     "fail": 0,
     "files": 39,
     "ruleFiles": 6,
@@ -189,7 +189,7 @@
       {
         "title": "Write the test, watch it fail",
         "text": "Each change starts with a test, and it has to fail on the old code for the reason expected before the code is written.",
-        "fact": "232 tests in 39 files, all passing",
+        "fact": "234 tests in 39 files, all passing",
         "url": "https://github.com/mattniznik/recall-desk.mniznik/tree/main/test"
       },
       {

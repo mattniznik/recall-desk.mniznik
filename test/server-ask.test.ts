@@ -221,3 +221,30 @@ test("the failure detail is short, carries no key-shaped string, and names non-A
   assert.ok((long.message ?? "").length <= 160);
   assert.deepEqual(upstreamDetail(new TypeError("fetch failed")), { status: undefined, type: "TypeError", message: "fetch failed" });
 });
+
+// Production, 2026-11-14, second question: the log said {"type":"APIConnectionError","message":
+// "Connection error."}. The SDK keeps the real network error in `cause` (client.mjs:697: undici's
+// "fetch failed", whose own cause carries a code such as ENOTFOUND), and the log read none of it.
+test("a connection failure logs its cause chain with each error's code", () => {
+  const net = Object.assign(new Error("getaddrinfo ENOTFOUND api.anthropic.com"), { code: "ENOTFOUND" });
+  const fetchFailed = Object.assign(new TypeError("fetch failed"), { cause: net });
+  const conn = Object.assign(new Error("Connection error."), { name: "APIConnectionError", cause: fetchFailed });
+  const d = upstreamDetail(conn);
+  assert.equal(d.type, "APIConnectionError");
+  assert.equal(d.message, "Connection error.");
+  assert.equal(d.cause, "TypeError: fetch failed <- Error(ENOTFOUND): getaddrinfo ENOTFOUND api.anthropic.com");
+});
+
+// A local probe (2026-11-14) showed undici quoting a whole header value in its error: a key with a
+// newline in it printed everything after the newline, because the old scrub stopped at whitespace.
+test("a header error that quotes a broken key logs none of the key", () => {
+  const key = `sk-ant-api03-${"a".repeat(20)}`;
+  const tail = "b".repeat(80);
+  const header = new TypeError(`Headers.append: "Bearer ${key}\n${tail}" is an invalid header value.`);
+  for (const e of [header, Object.assign(new Error("Connection error."), { name: "APIConnectionError", cause: header })]) {
+    const line = JSON.stringify(upstreamDetail(e));
+    assert.ok(!line.includes("aaaaaaaa"), line);
+    assert.ok(!line.includes("bbbbbbbb"), line);
+    assert.match(line, /invalid header value/);
+  }
+});

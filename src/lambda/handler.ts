@@ -170,7 +170,8 @@ export const handler = awslambda.streamifyResponse(async (event, responseStream)
     log.error = (e as { name?: string })?.name ?? "Error";
   } finally {
     // One metadata line per request: no question text, no IP, no secret. A failed run adds
-    // `upstream` (status, error type, 160 characters of message, key-shaped strings removed).
+    // `upstream` (status, error type, a short message, and for a connection failure the errors
+    // behind it with their codes; quoted text and key-shaped strings removed, ask.ts).
     console.log(JSON.stringify({ at: new Date().toISOString(), ...log, seconds: Math.round((Date.now() - started) / 100) / 10 }));
     out.end();
   }
