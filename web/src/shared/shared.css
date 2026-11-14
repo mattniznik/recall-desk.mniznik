@@ -1,0 +1,124 @@
+/* Shared by both layout families: "How it was built" (shared/Built.tsx, rag.irs's shared/workflow.css), the dot
+   field and the step-through player (shared/How.tsx, rag.irs's flows.js styles), and one recorded step (StepView).
+   Both families read the same palette variables (studio/theme.ts). */
+
+/* ---------- How it was built ---------- */
+.wf { color: var(--tx); padding: 96px 0 40px; scroll-margin-top: 64px; }
+.wf.wf-in-main { padding: 56px 0 8px; border-top: 1px solid var(--line); margin-top: 56px; }
+.wf-wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; }
+.wf-in-main .wf-wrap { padding: 0; }
+.wf-eyebrow { margin: 0 0 10px; font: 600 12px/1.3 ui-monospace, "JetBrains Mono", Consolas, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); }
+.wf h2.wf-h { margin: 0 0 12px; padding: 0; border: 0; font: var(--hw, 700) clamp(26px, 3.4vw, 40px)/1.15 var(--fh); letter-spacing: -.01em; color: var(--tx); }
+.wf h2.wf-h::before { content: none; }
+.caps .wf h2.wf-h { text-transform: uppercase; letter-spacing: 0; }
+.wf-lede { margin: 0 0 30px; max-width: 46em; color: var(--mu); font-size: 16px; line-height: 1.55; }
+.wf-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.wf-step { display: grid; grid-template-columns: auto 1fr; gap: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.wf-n { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font: 600 13px ui-monospace, "JetBrains Mono", monospace;
+  border: 1.5px solid var(--line); color: var(--mu); transition: background .4s, color .4s, border-color .4s; transition-delay: calc(var(--i) * 160ms); }
+.wf .wf-t { margin: 3px 0 6px; padding: 0; border: 0; font: 650 16px/1.3 var(--fb); color: var(--tx); text-transform: none; letter-spacing: 0; }
+.wf-x { margin: 0 0 12px; color: var(--mu); font-size: 14px; line-height: 1.5; }
+.wf-fact { display: inline-block; font-size: 13.5px; line-height: 1.4; color: var(--tx); text-decoration: none; border-bottom: 1px solid var(--acc); padding-bottom: 1px; }
+a.wf-fact:hover { color: var(--acc); }
+.wf-track { height: 3px; border-radius: 2px; background: var(--line); margin: 0 0 16px; overflow: hidden; }
+.wf-track i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--a1), var(--a2)); transition: width 1.1s cubic-bezier(.2, .7, .2, 1); }
+.wf.in .wf-track i { width: 100%; }
+.wf.in .wf-n { background: var(--acc); border-color: var(--acc); color: var(--on-acc); }
+.wf-step { opacity: .55; transform: translateY(6px); transition: opacity .5s, transform .5s; transition-delay: calc(var(--i) * 160ms); }
+.wf.in .wf-step { opacity: 1; transform: none; }
+.wf-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 22px; font-size: 14px; }
+.wf-foot a { color: var(--tx); }
+.wf-badge img { display: block; }
+@media (max-width: 900px) { .wf-steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .wf-steps { grid-template-columns: 1fr; } .wf { padding-top: 64px; } .wf-wrap { padding: 0 20px; } }
+@media (prefers-reduced-motion: reduce) { .wf-step, .wf-n, .wf-track i { transition: none; } .wf-step { opacity: 1; transform: none; } }
+
+/* ---------- the dot field ---------- */
+.funnel { margin-top: 6px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); overflow: hidden; }
+.funnel canvas { display: block; }
+.ftop { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-top: 1px solid var(--line); }
+.fcap { margin: 0; font: 500 13px/1.4 'JetBrains Mono', monospace; color: var(--acc); min-height: 1.4em; overflow-wrap: anywhere; }
+.fplay { flex: none; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 3px 12px; font-size: 13px; color: var(--mu); cursor: pointer; }
+.fsteps { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 16px; }
+.fstep { background: var(--card2); border: 1px solid var(--line); color: var(--mu); border-radius: 999px; padding: 5px 12px; font: inherit; font-size: 13px; cursor: pointer; transition: color .3s, background .3s; }
+.fstep.on { color: var(--on); border-color: transparent; background: linear-gradient(90deg, var(--a1), var(--a2)); }
+.fstep.open { outline: 1px solid var(--acc); outline-offset: 2px; }
+@media (max-width: 560px) { .fcap { min-height: 2.8em; } }
+.fexplain { margin-top: 14px; padding: 16px 18px; border-left: 3px solid var(--acc); background: var(--card); border-radius: 0 12px 12px 0; }
+.fexplain .h3 { font: 600 17px/1.3 var(--fh); margin: 0; }
+.caps .fexplain .h3 { text-transform: uppercase; }
+.fexplain p { margin: 6px 0 0; color: var(--mu); }
+
+/* ---------- the step-through player ---------- */
+.player { border: 1px solid var(--line); border-radius: 18px; background: var(--card); overflow: hidden; }
+.prail { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); padding: 16px 12px 12px; border-bottom: 1px solid var(--line); }
+/* the line runs from the first circle's centre to the last one's: 12px padding, six equal columns */
+.prail::before, .pprog { content: ""; position: absolute; top: 29px; left: calc(12px + (100% - 24px) / 12); height: 2px; }
+.prail::before { width: calc((100% - 24px) * 5 / 6); background: var(--line); }
+.pprog { width: 0; background: var(--tx); transition: width .6s cubic-bezier(.5, 0, .2, 1); }
+.pstep { position: relative; z-index: 1; background: none; border: 0; padding: 0 2px; display: grid; justify-items: center; gap: 6px; color: var(--mu); font: inherit; font-size: 12.5px; line-height: 1.25; text-align: center; cursor: pointer; }
+.pstep .pn { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--line); font: 500 12px 'JetBrains Mono', monospace; transition: background .3s, color .3s, border-color .3s; }
+.pstep.past .pn { background: var(--tx); border-color: var(--tx); color: var(--bg); }
+.pstep.on { color: var(--tx); font-weight: 600; }
+.pstep.on .pn { background: var(--acc); border-color: var(--acc); color: var(--on-acc); box-shadow: 0 0 0 4px color-mix(in srgb, var(--acc) 22%, transparent); }
+.pstage-wrap { position: relative; }
+.pstage { padding: 22px 22px 18px; }
+/* every step rendered once, out of sight, to find the tallest; the stage keeps that height */
+.pmeasure { position: absolute; inset: 0 0 auto; visibility: hidden; pointer-events: none; padding: 0; }
+.pmeasure > div { padding: 22px 22px 18px; position: absolute; inset: 0 0 auto; }
+.pctl { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 14px; padding: 12px 16px; border-top: 1px solid var(--line); background: var(--card2); font-size: 13px; }
+.pbtn { background: var(--tx); color: var(--bg); border: 0; border-radius: 999px; padding: 6px 14px; font: inherit; font-weight: 600; font-size: 13px; cursor: pointer; }
+.ptogs { display: flex; gap: 6px; flex-wrap: wrap; }
+.ptog { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; color: var(--mu); font: inherit; font-size: 13px; cursor: pointer; }
+.ptog[aria-pressed="true"] { border-color: var(--tx); color: var(--tx); background: var(--card); }
+@media (max-width: 700px) {
+  .pstep .pt { display: none; }
+  .pstep.on .pt { display: block; position: absolute; top: 34px; white-space: nowrap; }
+  .pstep:first-child.on .pt { left: 0; } .pstep:last-child.on .pt { right: 0; }
+  .prail { padding-bottom: 30px; }
+  .pstage, .pmeasure > div { padding: 18px 14px 14px; }
+}
+
+/* ---------- one step of one recorded run (player, story) ---------- */
+.lbl { font: 500 11px/1.5 'JetBrains Mono', monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--mu); margin: 0 0 10px; }
+.qtext { font: 400 28px/1.2 var(--fh); margin: 0 0 10px; min-height: 1.2em; overflow-wrap: anywhere; }
+.caps .qtext { text-transform: uppercase; font-weight: 800; }
+.caret { display: inline-block; width: 2px; height: .9em; background: var(--acc); vertical-align: -2px; margin-left: 2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.rows { display: grid; gap: 6px; }
+.rrow { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto auto; gap: 4px 12px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); font-size: 14px; }
+.rrow .rk { font: 500 12.5px 'JetBrains Mono', monospace; color: var(--acc); white-space: nowrap; }
+.rrow .rs { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rrow .rsum { font-weight: 600; white-space: nowrap; }
+.rrow .rmath { font: 12px 'JetBrains Mono', monospace; color: var(--mu); white-space: nowrap; }
+.rrow.ok { grid-template-columns: 22px minmax(0, 1fr); }
+.rrow.ok .rk { color: var(--ok); }
+.rrow.ok .rs { white-space: normal; }
+.rrow.bad { border-color: var(--bad); }
+.pjson { background: #141416; color: #f3ede2; border-radius: 12px; padding: 14px 16px; min-height: 120px; font: 12.5px/1.6 'JetBrains Mono', monospace; white-space: pre-wrap; word-break: break-word; margin: 0; }
+.stamp { display: inline-block; font: 600 13px 'JetBrains Mono', monospace; letter-spacing: .06em; text-transform: uppercase; padding: 6px 12px; border: 2px solid currentColor; border-radius: 8px; transform: rotate(-3deg); margin: 4px 0 8px; }
+.stamp.ok { color: var(--ok); } .stamp.bad { color: var(--bad); }
+.motion .stamp { animation: stamp .45s cubic-bezier(.2, 1.6, .4, 1) both; animation-delay: var(--d, 0ms); }
+@keyframes stamp { from { opacity: 0; transform: rotate(-3deg) scale(1.8); } }
+.pquote { font: 400 21px/1.3 var(--fh); margin: 0 0 8px; }
+.caps .pquote { text-transform: uppercase; font-weight: 700; }
+.pctx { font-size: 14px; color: var(--mu); margin: 6px 0 0; overflow-wrap: anywhere; }
+.pend { margin: 14px 0 0; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 15px; }
+.answer-whole { white-space: pre-line; overflow-wrap: anywhere; }
+.pfoot { font-size: 12.5px; color: var(--mu); margin: 12px 0 0; }
+.meters { display: grid; gap: 12px; }
+.meter { display: grid; grid-template-columns: 110px 1fr auto; gap: 12px; align-items: center; font-size: 14px; }
+.mbar { height: 10px; border-radius: 5px; background: var(--card2); border: 1px solid var(--line); overflow: hidden; }
+.mbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--a1), var(--a2)); border-radius: 5px; }
+.mval { font: 12.5px 'JetBrains Mono', monospace; color: var(--mu); white-space: nowrap; }
+.motion .pstage .in, .motion .svis .in { animation: rise .5s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+@media (max-width: 560px) {
+  .qtext { font-size: 23px; }
+  .rrow { grid-template-columns: minmax(0, 1fr) auto; }
+  .rrow:not(.ok) .rk { grid-column: 1; grid-row: 1; }
+  .rrow .rmath { grid-column: 2; grid-row: 1; }
+  .rrow:not(.ok) .rs, .rrow .rsum { grid-column: 1 / -1; }
+  .meter { grid-template-columns: 90px 1fr; } .meter .mval { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) { .caret { animation: none; } .pprog, .pstep .pn { transition: none; } }

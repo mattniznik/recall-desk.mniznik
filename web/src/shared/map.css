@@ -1,0 +1,111 @@
+/* The system map (shared/SystemMap.tsx). Every colour is a palette variable (studio/theme.ts), so it takes each
+   layout's look; a layout can restyle it from outside (looks/looks.css). Class names all start with sm- so
+   nothing here meets the one-column layouts' .node, .line or .dot. */
+.sm { --sm-r: 18px; position: relative; scroll-margin-top: 76px; border: 1px solid var(--line); border-radius: var(--sm-r); background: var(--card); color: var(--tx); font-family: var(--fb); text-align: left; text-transform: none; letter-spacing: 0; }
+.sm button { font: inherit; cursor: pointer; }
+.sm-top { display: flex; align-items: center; justify-content: space-between; gap: 10px 14px; flex-wrap: wrap; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.sm-now { display: flex; align-items: center; gap: 9px; min-width: 0; font: 500 12.5px/1.35 'JetBrains Mono', ui-monospace, monospace; color: var(--mu); }
+.sm-now span:last-child { overflow-wrap: anywhere; }
+.sm-live { width: 8px; height: 8px; border-radius: 50%; background: var(--line); flex: none; }
+.sm-live.on { background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent); }
+.motion .sm-live.on { animation: sm-blink 1.2s ease-in-out infinite; }
+@keyframes sm-blink { 50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--ok) 6%, transparent); } }
+.sm-ctl { display: flex; gap: 6px; flex-wrap: wrap; }
+.sm-ctl button { min-height: 36px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card2); color: var(--tx); font-size: 13.5px; font-weight: 600; }
+.sm-ctl button:hover:not(:disabled) { border-color: var(--mu); }
+.sm-ctl button:disabled { opacity: .45; cursor: default; }
+.sm-ctl .sm-go { background: var(--fill); color: var(--on-fill); border-color: transparent; }
+
+/* the drawing */
+.sm-stage { position: relative; }
+.sm-svg { display: block; width: 100%; height: auto; }
+.is-tall .sm-svg { max-width: 460px; margin: 0 auto; }
+.sm-dot { fill: color-mix(in srgb, var(--mu) 28%, transparent); }
+.sm-zones text { font: 600 10px 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .14em; fill: var(--mu); }
+.sm-e { fill: none; stroke: color-mix(in srgb, var(--mu) 38%, transparent); stroke-width: 1.5; transition: stroke .35s; }
+.sm-e.dash { stroke-dasharray: 4 5; }
+.sm-e.is-seen { stroke: color-mix(in srgb, var(--acc) 55%, var(--line)); stroke-width: 1.8; }
+.sm-e.is-on { stroke: var(--acc); stroke-width: 2.8; stroke-dasharray: 7 6; }
+.sm-e.is-on.t-ok { stroke: var(--ok); }
+.sm-e.is-on.t-bad { stroke: var(--bad); }
+.motion .sm-e.is-on { animation: sm-flow .7s linear infinite; }
+.motion .sm-e.is-on.back { animation-direction: reverse; }
+@keyframes sm-flow { to { stroke-dashoffset: -26; } }
+
+.sm-n { cursor: pointer; outline: none; }
+.sm-shape { fill: var(--card); stroke: var(--line); stroke-width: 1.3; transition: stroke .3s, fill .3s; }
+.k-source .sm-shape { fill: var(--card2); }
+.sm-rim { fill: none; stroke: var(--line); stroke-width: 1.3; }
+.k-outcome .sm-shape { fill: var(--card2); }
+.sm-stripe { fill: var(--line); }
+.k-tool .sm-stripe { fill: var(--a1); }
+.k-model .sm-stripe, .k-agent .sm-stripe { fill: var(--a2); }
+.k-gate .sm-stripe, .k-edge .sm-stripe, .k-server .sm-stripe { fill: var(--a3); }
+.k-rules .sm-stripe { fill: var(--acc); }
+.k-person .sm-stripe { fill: var(--mu); }
+.sm-l { fill: var(--tx); font-family: var(--fb); font-weight: 650; }
+.sm-s { fill: var(--mu); font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.sm-note { fill: var(--tx); font-weight: 600; }
+.sm-halo { fill: transparent; stroke: none; }
+.sm-n.is-seen .sm-shape { stroke: color-mix(in srgb, var(--acc) 50%, var(--line)); }
+.sm-n.is-on .sm-shape { stroke: var(--acc); stroke-width: 2.2; }
+.sm-n.is-on .sm-halo { fill: color-mix(in srgb, var(--acc) 16%, transparent); }
+.sm-n.is-on.t-ok .sm-shape { stroke: var(--ok); } .sm-n.is-on.t-ok .sm-halo { fill: color-mix(in srgb, var(--ok) 16%, transparent); }
+.sm-n.is-on.t-bad .sm-shape { stroke: var(--bad); } .sm-n.is-on.t-bad .sm-halo { fill: color-mix(in srgb, var(--bad) 16%, transparent); }
+.motion .sm-n.is-on .sm-halo { animation: sm-pulse 1.4s ease-in-out infinite; }
+@keyframes sm-pulse { 50% { opacity: .35; } }
+.sm-n.is-focus .sm-shape, .sm-n:focus-visible .sm-shape, .sm-n.is-hover .sm-shape { stroke: var(--tx); stroke-width: 2; }
+.sm-n.is-focus .sm-halo { fill: color-mix(in srgb, var(--tx) 8%, transparent); }
+.sm-badge circle { fill: var(--ok); }
+.sm-badge.bad circle { fill: var(--bad); }
+.sm-badge path { fill: none; stroke: var(--card); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.sm-pk { fill: var(--acc); opacity: 0; pointer-events: none; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--acc) 70%, transparent)); }
+.sm-pk.t-ok { fill: var(--ok); } .sm-pk.t-bad { fill: var(--bad); }
+
+/* the caption: under the drawing; on a phone it stays in view while the tall drawing scrolls */
+.sm-bar { padding: 12px 16px; border-top: 1px solid var(--line); background: var(--card); min-height: 64px; }
+.is-tall .sm-bar { position: sticky; bottom: 0; z-index: 2; box-shadow: 0 -10px 24px -18px rgba(0, 0, 0, .5); padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+.simple .is-tall .sm-bar { padding-right: 112px; }
+@media (min-width: 701px) { .simple .is-tall .sm-bar { padding-right: 16px; } }
+.sm-cap { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
+.sm-cap.t-bad { color: var(--bad); }
+.sm-cap.t-ok { color: var(--ok); }
+.sm-k { font: 500 12px 'JetBrains Mono', ui-monospace, monospace; color: var(--mu); }
+.sm-step { margin: 0 0 4px; font: 500 12px/1.4 'JetBrains Mono', ui-monospace, monospace; color: var(--mu); }
+.sm-step b { color: var(--tx); font-weight: 600; }
+.sm-info { margin: 0 0 6px; font-size: 14px; line-height: 1.45; color: var(--mu); }
+.is-tour .sm-cap { font-weight: 600; }
+
+.sm-foot { padding: 4px 16px 14px; }
+.sm-hint { margin: 10px 0; font-size: 14px; line-height: 1.5; color: var(--mu); min-height: 3em; }
+.sm-hint b { color: var(--tx); }
+.sm-runs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.sm-runs button { min-height: 36px; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line); background: none; color: var(--mu); font-size: 13px; }
+.sm-runs button:hover { color: var(--tx); border-color: var(--mu); }
+.sm-runs button[aria-pressed="true"] { color: var(--tx); border-color: var(--acc); box-shadow: 0 0 0 1px var(--acc) inset; }
+.sm-list summary { cursor: pointer; font-size: 13.5px; color: var(--mu); padding: 4px 0; }
+.sm-list ol { margin: 6px 0 0; padding-left: 22px; display: grid; gap: 2px; }
+.sm-list li { font-size: 13.5px; color: var(--mu); }
+.sm-list li button { background: none; border: 0; padding: 3px 0; color: inherit; text-align: left; line-height: 1.4; }
+.sm-list li.on { color: var(--tx); font-weight: 600; }
+.sm-list li.t-bad button { color: var(--bad); }
+
+/* the map as its own section (SystemMapSection) */
+.sm-sec { scroll-margin-top: 72px; }
+.sm-head { margin: 0 0 18px; }
+.sm-eyebrow { margin: 0 0 8px; font: 600 12px/1.3 'JetBrains Mono', ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--acc); }
+.sm-h { margin: 0 0 10px; font: var(--hw, 700) clamp(24px, 3vw, 36px)/1.15 var(--fh); letter-spacing: -.01em; color: var(--tx); padding: 0; border: 0; }
+.caps .sm-h { text-transform: uppercase; letter-spacing: 0; }
+.sm-lede { margin: 0; max-width: 48em; color: var(--mu); font-size: 16px; line-height: 1.55; }
+.rich .sm-sec { padding: 40px 0 20px; }
+.simple .sm-sec { margin-top: 48px; }
+
+@media (max-width: 560px) {
+  .sm-top { padding: 10px 12px; }
+  .sm-bar { padding: 10px 12px; }
+  .sm-foot { padding: 2px 12px 12px; }
+  .sm-cap { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sm *, .sm *::before { animation: none !important; transition: none !important; }
+}

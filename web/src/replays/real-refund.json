@@ -1,0 +1,114 @@
+{
+  "label": "Real run: claude-opus-5-5, effort low, on recorded NHTSA data, 2026-11-14. 2 model calls, 6,462 tokens, $0.0101.",
+  "question": "The brake pads I ordered last week don't fit my car. I want a refund.",
+  "status": "answered",
+  "real": true,
+  "costUsd": 0.010114,
+  "tokens": {
+    "input": 451,
+    "cacheWrite": 0,
+    "cacheRead": 5652,
+    "output": 359
+  },
+  "seconds": 5.635,
+  "events": [
+    {
+      "type": "model_call",
+      "n": 1,
+      "stopReason": "tool_use",
+      "model": "claude-opus-5-5",
+      "usage": {
+        "input_tokens": 100,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 2826,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 100,
+            "output_tokens": 114,
+            "cache_read_input_tokens": 2826,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 114,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "speed": "standard"
+      }
+    },
+    {
+      "type": "tool_call",
+      "n": 1,
+      "name": "create_handoff",
+      "input": {
+        "reason": "refund",
+        "summary": "Customer ordered brake pads last week that don't fit their car and is requesting a refund. No order number or vehicle details provided yet."
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "create_handoff",
+      "ok": true,
+      "summary": "ticket HO-157597",
+      "ms": 2
+    },
+    {
+      "type": "model_call",
+      "n": 2,
+      "stopReason": "tool_use",
+      "model": "claude-opus-5-5",
+      "usage": {
+        "input_tokens": 351,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 2826,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 351,
+            "output_tokens": 245,
+            "cache_read_input_tokens": 2826,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 245,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "speed": "standard"
+      }
+    },
+    {
+      "type": "answer",
+      "answer": {
+        "text": "Sorry the brake pads didn't fit. I've sent your refund request to our support team (ticket HO-157597), and someone will follow up with you. To help them move faster, have your order number ready. If you also send me your VIN or the year, make, model and body style, I can find pads that fit your car.",
+        "cited_recall_ids": [],
+        "applies_to_vehicle": [],
+        "fits": [],
+        "handoff": true
+      }
+    }
+  ]
+}

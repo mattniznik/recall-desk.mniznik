@@ -1,0 +1,140 @@
+{
+  "label": "Real run: claude-opus-5-5, effort low, on recorded NHTSA data, 2026-11-14. 2 model calls, 10,620 tokens, $0.0479.",
+  "question": "2017 Civic, grinding brakes when I stop. Any recall?",
+  "status": "answered",
+  "real": true,
+  "costUsd": 0.04789,
+  "tokens": {
+    "input": 4131,
+    "cacheWrite": 2828,
+    "cacheRead": 2828,
+    "output": 833
+  },
+  "seconds": 11.864,
+  "events": [
+    {
+      "type": "model_call",
+      "n": 1,
+      "stopReason": "tool_use",
+      "model": "claude-opus-5-5",
+      "usage": {
+        "input_tokens": 99,
+        "cache_creation_input_tokens": 2828,
+        "cache_read_input_tokens": 0,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 2828,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 99,
+            "output_tokens": 211,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 2828,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 2828,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "speed": "standard"
+      }
+    },
+    {
+      "type": "tool_call",
+      "n": 1,
+      "name": "get_recalls",
+      "input": {
+        "make": "Honda",
+        "model": "Civic",
+        "year": 2017
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "get_recalls",
+      "ok": true,
+      "summary": "6 recalls",
+      "ms": 1
+    },
+    {
+      "type": "tool_call",
+      "n": 2,
+      "name": "search_complaints",
+      "input": {
+        "make": "Honda",
+        "model": "Civic",
+        "year": 2017,
+        "component": "brake"
+      }
+    },
+    {
+      "type": "tool_result",
+      "name": "search_complaints",
+      "ok": true,
+      "summary": "38 of 606 complaints (brake)",
+      "ms": 10
+    },
+    {
+      "type": "model_call",
+      "n": 2,
+      "stopReason": "tool_use",
+      "model": "claude-opus-5-5",
+      "usage": {
+        "input_tokens": 4032,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 2828,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 0
+        },
+        "iterations": [
+          {
+            "input_tokens": 4032,
+            "output_tokens": 622,
+            "cache_read_input_tokens": 2828,
+            "cache_creation_input_tokens": 0,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 0
+            },
+            "type": "message",
+            "model": null
+          }
+        ],
+        "output_tokens": 622,
+        "output_tokens_details": {
+          "thinking_tokens": 0
+        },
+        "service_tier": "standard",
+        "inference_geo": "global",
+        "speed": "standard"
+      }
+    },
+    {
+      "type": "answer",
+      "answer": {
+        "text": "Short answer: NHTSA has no brake recall for the 2017 Civic.\n\nNHTSA lists 6 recalls for the 2017 Civic, but none of them are for the brakes. They cover the power steering (18V663000), the fuel pump (23V858000), the front passenger seat weight sensor (26V332000), the right halfshaft on sedans and coupes (17V706000), and two that only affect hatchbacks and the Type R (18V266000 and 18V817000). Some of these depend on your body style, so I can't say which ones apply to your car yet. If you send me your VIN, I can narrow it down. You can also check your car's official recall status at nhtsa.gov/recalls with your VIN.\n\nOwners have filed 38 brake-related complaints with NHTSA for this model year. These are unverified reports, not recalls, and none of them confirm a defect.\n\nAbout the grinding: I'm not a mechanic, but common causes are brake pads worn down to the metal, worn or scored rotors, a stuck caliper, or a small stone caught behind the brake. Please have your brakes checked soon. Grinding often means metal is rubbing on metal, and that can make stopping less safe.\n\nIf it turns out you need new pads or rotors, tell me your body style (sedan, coupe or hatchback) or send your VIN, and I'll find parts that fit.",
+        "cited_recall_ids": [
+          "18V663000",
+          "23V858000",
+          "26V332000",
+          "17V706000",
+          "18V266000",
+          "18V817000"
+        ],
+        "applies_to_vehicle": [],
+        "fits": [],
+        "handoff": false
+      }
+    }
+  ]
+}
