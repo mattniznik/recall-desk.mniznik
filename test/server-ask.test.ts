@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { handleAsk, ndjson, CHAT_LIMITS, type AskDeps, type AskEvent } from "../src/server/ask.ts";
+import { handleAsk, ndjson, upstreamDetail, CHAT_LIMITS, type AskDeps, type AskEvent } from "../src/server/ask.ts";
 import type { ModelClient, ModelTurn } from "../src/agent/loop.ts";
 import { recordedFetch } from "../src/tools/recorded.ts";
 
@@ -195,4 +195,29 @@ test("a run answered by a model missing from the price table still counts agains
   assert.equal(done.costUsd, null, "the shown cost stays honest: unknown");
   assert.equal(calls.spend.length, 1, "the run is still charged to the day");
   assert.ok(calls.spend[0][1] > 0);
+});
+
+// Production, 2026-11-14: the first real question failed in 2.6 s and the log line said only
+// {"outcome":"failed"}, so the cause could not be read without the key. A failure now hands the
+// upstream status, error type and a short message to the log (deps.onFailure); the visitor still
+// gets only the generic message.
+test("a model failure reports its status and type to the log, never to the visitor", async () => {
+  const auth = Object.assign(new Error('401 {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"}}'), {
+    status: 401,
+    error: { type: "error", error: { type: "authentication_error", message: "invalid x-api-key" } },
+  });
+  const seen: unknown[] = [];
+  const { deps } = setup({ modelClient: async () => async () => Promise.reject(auth), onFailure: (d) => seen.push(d) });
+  const events = await ask(good, deps);
+  assert.equal(errorOf(events)?.code, "failed");
+  assert.deepEqual(seen, [{ status: 401, type: "authentication_error", message: "invalid x-api-key" }]);
+  assert.ok(!JSON.stringify(events).includes("authentication_error"));
+});
+
+test("the failure detail is short, carries no key-shaped string, and names non-API errors", () => {
+  const long = upstreamDetail(Object.assign(new Error(`bad key sk-ant-api03-${"x".repeat(40)} ${"y".repeat(400)}`), { status: 400 }));
+  assert.equal(long.status, 400);
+  assert.ok(!/sk-ant-[A-Za-z0-9_-]{8,}/.test(long.message ?? ""));
+  assert.ok((long.message ?? "").length <= 160);
+  assert.deepEqual(upstreamDetail(new TypeError("fetch failed")), { status: undefined, type: "TypeError", message: "fetch failed" });
 });

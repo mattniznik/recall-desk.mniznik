@@ -46,7 +46,12 @@ export type AskDeps = {
   fetchJson: FetchJson;
   salt: string;
   now?: () => Date;
+  // Told why a run failed (upstreamDetail), for the operator's log only; the visitor gets the
+  // generic message.
+  onFailure?: (detail: UpstreamDetail) => void;
 };
+
+export type UpstreamDetail = { status: number | undefined; type: string; message: string };
 
 const MESSAGES: Record<ErrorCode, string> = {
   bad_request: "That request could not be read. Questions are up to 500 characters.",
@@ -102,6 +107,19 @@ function errorCodeOf(e: unknown): ErrorCode {
   if ((status === 400 || status === 429) && (/usage limits/i.test(message) || code === "enforced_spend_limit_reached")) return "budget";
   if (status === 429 || status === 529) return "busy";
   return "failed";
+}
+
+// Why a run failed, short enough for one log line: the HTTP status, Anthropic's error type (or the
+// JavaScript error name), and the start of the message with anything key-shaped removed. Added
+// after the first production question failed with nothing in the log but "failed" (2026-11-14).
+export function upstreamDetail(e: unknown): UpstreamDetail {
+  const err = e as { status?: number; name?: string; message?: string; error?: { error?: { type?: string; message?: string } } };
+  const raw = String(err?.error?.error?.message ?? err?.message ?? "");
+  return {
+    status: typeof err?.status === "number" ? err.status : undefined,
+    type: err?.error?.error?.type ?? err?.name ?? "Error",
+    message: raw.replace(/sk-ant-[A-Za-z0-9_-]+/g, "sk-ant-[removed]").replace(/\s+/g, " ").trim().slice(0, 160),
+  };
 }
 
 export async function handleAsk(body: unknown, ip: string, deps: AskDeps, write: (e: AskEvent) => void): Promise<void> {
@@ -161,6 +179,7 @@ export async function handleAsk(body: unknown, ip: string, deps: AskDeps, write:
       seconds: Math.round((Date.now() - started) / 100) / 10,
     });
   } catch (e) {
+    deps.onFailure?.(upstreamDetail(e));
     fail(errorCodeOf(e));
   } finally {
     // What the model calls cost counts against the day even when the run failed half way.

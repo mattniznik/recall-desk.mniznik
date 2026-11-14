@@ -159,6 +159,9 @@ export const handler = awslambda.streamifyResponse(async (event, responseStream)
         addSpend,
         fetchJson: nhtsa,
         salt: s.salt,
+        onFailure: (detail) => {
+          log.upstream = detail;
+        },
       };
       await handleAsk(bodyOf(event), ip, deps, write);
     }
@@ -166,7 +169,8 @@ export const handler = awslambda.streamifyResponse(async (event, responseStream)
     write(errorEvent("failed"));
     log.error = (e as { name?: string })?.name ?? "Error";
   } finally {
-    // One metadata line per request: no question text, no IP, no secret.
+    // One metadata line per request: no question text, no IP, no secret. A failed run adds
+    // `upstream` (status, error type, 160 characters of message, key-shaped strings removed).
     console.log(JSON.stringify({ at: new Date().toISOString(), ...log, seconds: Math.round((Date.now() - started) / 100) / 10 }));
     out.end();
   }
