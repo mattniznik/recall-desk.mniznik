@@ -561,5 +561,6 @@ here (n=6).
 
 ## License
 
-Code: MIT. The NHTSA replies in `fixtures/nhtsa/` are works of the U.S. government and not subject to copyright.
-The store, its catalog, part numbers and prices are invented.
+Code: MIT, see [LICENSE](LICENSE). The NHTSA replies in `fixtures/nhtsa/` are works of the U.S. government and
+not subject to copyright. The store, its catalog, part numbers and prices are invented. Both notes are in
+[NOTICE](NOTICE).

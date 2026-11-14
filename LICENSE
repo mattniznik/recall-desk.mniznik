@@ -19,9 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-The NHTSA data in fixtures/nhtsa/ (recall, complaint, safety rating and VIN
-decoder replies from the U.S. National Highway Traffic Safety Administration's
-public APIs) is a work of the United States government and is not subject to
-copyright in the United States (17 U.S.C. 105). The store, its catalog, part
-numbers and prices in data/catalog.json are invented for the demo.
