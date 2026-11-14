@@ -1,0 +1,35 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  # Everything runs on the recorded NHTSA replies in fixtures/nhtsa/. No secrets, no model calls, no AWS:
+  # the Anthropic adapter is tested with a fake SDK and the Lambda bundle with a stubbed runtime.
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, resolved 2026-11-14
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4, resolved 2026-11-14
+        with:
+          node-version: "22"
+          cache: npm
+
+      # The root package.json lists web/ as an npm workspace, so one install covers the page too.
+      - name: Install
+        run: npm ci
+
+      - name: Unit tests (node --test)
+        run: npm test
+
+      - name: Build the page
+        run: npm run web:build
+
+      - name: Build the Lambda bundle
+        run: npm run build:lambda
