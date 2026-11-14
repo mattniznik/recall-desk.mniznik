@@ -1,0 +1,140 @@
+{
+  "version": "0.1.0",
+  "model": "claude-haiku-5-5, Claude Code subscription run",
+  "ranAt": "2026-11-14T09:40:11.378Z",
+  "path": "Claude Code subscription run",
+  "note": "Run with `claude -p` on a Claude subscription login, not through the production Anthropic API path (src/agent/anthropic.ts). Same system prompt, tools, recorded NHTSA data and rules, reached through an MCP server. Costs are Claude Code's client-side estimate (total_cost_usd) of what the same tokens would cost on the API; nothing was billed per token.",
+  "complete": false,
+  "estimatedApiCostUsd": 0.00435,
+  "estimatedApiCostComplete": true,
+  "claudeCode": "2.1.314 (Claude Code)",
+  "command": "claude -p --restricted --model claude-haiku-5-5 --effort low --system-prompt-file <tmp>/system-prompt.txt --mcp-config <tmp>/mcp.json --strict-mcp-config --tools \"\" --allowedTools mcp__recalldesk__* --permission-mode dontAsk --settings <tmp>/settings.json --disable-slash-commands --no-session-persistence --max-turns 7 --output-format json -- <question>",
+  "maxTurns": 7,
+  "promptHash": "4ee1f2241be7",
+  "wallSeconds": 18.9,
+  "cases": [
+    {
+      "id": "lookup-civic-all",
+      "type": "recall_lookup",
+      "passed": true,
+      "reasons": [],
+      "question": "What recalls are there for a 2017 Honda Civic?",
+      "status": "answered",
+      "answer": {
+        "text": "NHTSA lists 6 recalls for the 2017 Honda Civic. None are marked \"park it\" or \"park outside.\"\n\n- 18V663000: Electric power steering. A magnet can come loose, which may cause steering assist in the wrong direction during a full lock turn. Dealers replace the steering gearbox free of charge.\n- 18V817000: Owner's manual/child restraint information. The owner's information kit may be missing or incomplete. Dealers replace the kit free of charge. Covers Civic Hatchback and Type R.\n- 18V266000: Air bags. Replacement seatback pads lack slits for the side air bags. Dealers replace the front seatback pads free of charge. Covers Civic Hatchback and Type R.\n- 17V706000: Driveshaft. The right halfshaft may break. Covers Civic Sedan and Coupe. Dealers inspect and replace the halfshaft free of charge.\n- 23V858000: Fuel pump. The pump may fail and stall the engine. Dealers replace the fuel pump module free of charge.\n- 26V332000: Front passenger seat weight sensor. It may short and cause the air bags to deploy unintentionally in a crash. Dealers replace the sensor free of charge.\n\nSeveral of these cover only certain body styles (sedan, coupe or hatchback). To tell you which ones apply to your car, I need your body style, or your VIN so I can look it up. You can also check the official status for your VIN at nhtsa.gov/recalls.",
+        "cited_recall_ids": [
+          "18V663000",
+          "18V817000",
+          "18V266000",
+          "17V706000",
+          "23V858000",
+          "26V332000"
+        ],
+        "applies_to_vehicle": [],
+        "fits": [],
+        "handoff": false
+      },
+      "toolCalls": [
+        {
+          "name": "get_recalls",
+          "ok": true,
+          "summary": "6 recalls"
+        }
+      ],
+      "rulesFailed": [],
+      "claudeResult": "success",
+      "turns": 3,
+      "seconds": 6.8,
+      "tokens": {
+        "input": 6,
+        "output": 1409,
+        "cacheRead": 10179,
+        "cacheWrite": 7300
+      },
+      "estCostUsd": 0.00226689,
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "safety-tucson-recalls",
+      "type": "safety_first",
+      "passed": true,
+      "reasons": [],
+      "question": "Does my 2019 Hyundai Tucson have any recalls?",
+      "status": "answered",
+      "answer": {
+        "text": "PARK OUTSIDE: NHTSA says to park your 2019 Hyundai Tucson outside and away from buildings until repaired under recall 20V543000.\n\nThis recall covers the anti-lock brake control unit (HECU), which can corrode and short electrically, possibly causing an engine compartment fire. The repair is free: dealers replace the HECU fuse, and for 2019 to 2021 models they also update the stability control software. Hyundai's number for this recall is 195, and you can call 1-855-371-9460.\n\nTo confirm your specific car's status, check your VIN at nhtsa.gov/recalls. If you send me your 17-character VIN, I can decode it to confirm the exact model and trim.",
+        "cited_recall_ids": [
+          "20V543000"
+        ],
+        "applies_to_vehicle": [
+          "20V543000"
+        ],
+        "fits": [],
+        "handoff": false
+      },
+      "toolCalls": [
+        {
+          "name": "get_recalls",
+          "ok": true,
+          "summary": "1 recalls"
+        }
+      ],
+      "rulesFailed": [
+        [
+          "safety_warning_first"
+        ]
+      ],
+      "claudeResult": "success",
+      "turns": 4,
+      "seconds": 8.2,
+      "tokens": {
+        "input": 8,
+        "output": 1614,
+        "cacheRead": 16832,
+        "cacheWrite": 2713
+      },
+      "estCostUsd": 0.0015187200000000003,
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    },
+    {
+      "id": "handoff-refund",
+      "type": "handoff",
+      "passed": true,
+      "reasons": [],
+      "question": "I want a refund for the brake pads I ordered last week.",
+      "status": "answered",
+      "answer": {
+        "text": "I can't process refunds here, so I've passed your request to a member of our team with your details. They'll help with the brake pad order. If you have the order number handy, include it in your reply to speed things up.",
+        "cited_recall_ids": [],
+        "applies_to_vehicle": [],
+        "fits": [],
+        "handoff": true
+      },
+      "toolCalls": [
+        {
+          "name": "create_handoff",
+          "ok": true,
+          "summary": "ticket HO-7BABCC"
+        }
+      ],
+      "rulesFailed": [],
+      "claudeResult": "success",
+      "turns": 3,
+      "seconds": 3.3,
+      "tokens": {
+        "input": 4,
+        "output": 463,
+        "cacheRead": 6879,
+        "cacheWrite": 1318
+      },
+      "estCostUsd": 0.00056429,
+      "models": [
+        "claude-haiku-5-5"
+      ]
+    }
+  ]
+}
