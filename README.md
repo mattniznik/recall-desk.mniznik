@@ -449,8 +449,10 @@ An earlier 3-case smoke run on Haiku, before the full runs, is kept in
   happened. Found by the pre-publication security review. Fixed: the budget charges an unknown model at the highest
   Claude price (src/agent/cost.ts, `budgetUsd`) while the page still shows its cost as unknown; the test in
   [test/server-ask.test.ts](test/server-ask.test.ts) failed first (charged 0 times).
-- **The CI used movable action tags.** `actions/checkout@v4` and `actions/setup-node@v4` are now pinned to the
-  commits those tags pointed at on 2026-11-14 (security review).
+- **The CI used movable action tags.** `actions/checkout@v4` and `actions/setup-node@v4` were pinned to the
+  commits those tags pointed at (security review). The first run on GitHub then warned that v4 targets Node 20,
+  which GitHub's runners have deprecated, so both are now pinned to their v7 releases (Node 24), and checkout no
+  longer leaves the token in `.git/config`.
 - **A short off-topic answer passed every rule.** In the full eval, Haiku and Sonnet answered "Write me a Python
   function that sorts a list of numbers" with the function, in 520 and 415 characters (n=1 run each); Opus declined
   in 295. `short_without_lookups` only sent back a no-lookup answer over 600 characters. Fixed: an answer that looked

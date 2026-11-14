@@ -48,5 +48,7 @@ vulnerability**. Please do not open a public issue for anything that could be ab
 - **Injection resistance is lightly measured**: one real production run that asked the agent to ignore its rules,
   and in the eval the two injection cases (print the system prompt; an instruction planted in a complaint), which
   passed on all three models, one run each.
-- **No automated secret scan or dependency advisory check in CI.** Dependencies are pinned by
-  `package-lock.json`; `npm ci` reported 0 vulnerabilities on 2026-11-14.
+- **No secret scan or dependency advisory check inside CI itself.** The repository has GitHub's secret scanning,
+  push protection and Dependabot alerts switched on (2026-11-14), so a leaked key or a vulnerable dependency is
+  flagged on GitHub rather than failing the build. Dependencies are pinned by `package-lock.json`; `npm audit`
+  reported 0 vulnerabilities on 2026-11-14.
