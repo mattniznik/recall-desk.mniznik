@@ -20,7 +20,7 @@ import type { AskEvent } from "../../src/server/ask.ts";
 import type { Choice } from "./studio/choice.ts";
 
 const EVENTS_URL = "https://events.mniznik.com/api/event";
-const CLARITY = ""; // the Clarity project id; empty: no Clarity
+const CLARITY = "ze4mrsxqee"; // the Clarity project id; empty: no Clarity
 const OFF = "recall-desk-no-track", SRC = "recall-desk-src", VID = "recall-desk-vid";
 
 /** A suggestion's id: its label in lower case, words joined by "-", at most 40 characters. */
