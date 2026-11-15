@@ -21,7 +21,7 @@ answer back. The demo comes in 12 layouts, 21 colour sets and 15 typefaces, with
 all of them; the default is layout 01, Ask anything. The **Studio** button lets a visitor pick a look, and the pick
 is saved in their browser for the next visit. See [Design](#design-on-the-web-and-on-a-phone).
 
-<a href="https://recall-desk.mniznik.com"><img alt="The front of the live demo in the default look, animated as on the page: the headline, then the desk with its Ask, Examples and Evals tabs and the question box, whose gradient ring turns and glows, with the Ask button inside it." src="docs/img/hero.gif" width="760"></a>
+<a href="https://recall-desk.mniznik.com"><img alt="The system map on the live demo playing a real recorded run, the park-it recall: each piece lights up as the agent works, the rules send the first answer back because the safety warning is missing, and the corrected answer is shown with its 12 recalls cited. A caption under the map names each of the 10 steps." src="docs/img/system-map.gif" width="760"></a>
 
 ## Why build it this way
 
