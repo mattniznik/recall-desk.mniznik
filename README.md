@@ -2,6 +2,8 @@
 
 [![ci](https://github.com/mattniznik/recall-desk.mniznik/actions/workflows/ci.yml/badge.svg)](https://github.com/mattniznik/recall-desk.mniznik/actions/workflows/ci.yml)
 
+By [Mat Niznik](https://www.linkedin.com/in/matniznik).
+
 A support agent for a fictional Auto Parts Store. It answers questions about vehicle recalls, owners'
 complaints, safety ratings and parts from NHTSA's public data, with Claude calling seven tools. Every step it
 takes is shown, and code checks the answer against six rules before a customer sees it. An answer that breaks
@@ -559,8 +561,8 @@ the page has no analytics or visit events.
 **How the page is put together** ([web/src/](web/src/)):
 
 - [studio/presets.ts](web/src/studio/presets.ts) holds the 12 layouts, 21 colour sets, 15 typefaces and the
-  default: layout 10, Run canvas, in "Golden hour on paper" with Barlow Condensed caps and DM Sans, the owner's
-  pick on 2026-11-14, marked "for now" there.
+  default: layout 10, Run canvas, in "Golden hour on paper" with Barlow Condensed caps and DM Sans, chosen
+  on 2026-11-14.
 - Before anything else, an inline script from [studio/boot.ts](web/src/studio/boot.ts) paints the background of the
   look about to show, so a dark look does not flash white, and keeps the page hidden until it has rendered, or
   6 seconds at most.

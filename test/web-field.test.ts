@@ -1,6 +1,6 @@
 // The dot field ("one dot per owner complaint, a square per recall"): a lit mark has to fit
-// inside its own grid cell. Mat, 2026-11-14, on the screenshot: "why the dots and squers are
-// so big". They were 2.1 times a grid dot (a circle 1.26 grid steps wide, a square about one
+// inside its own grid cell. Until 2026-11-14 lit marks
+// were 2.1 times a grid dot (a circle 1.26 grid steps wide, a square about one
 // step), so lit marks overlapped their neighbours and clumped.
 
 import { test } from "node:test";

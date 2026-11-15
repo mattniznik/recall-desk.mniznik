@@ -59,7 +59,7 @@ const MESSAGES: Record<ErrorCode, string> = {
   not_live: "Live answers are not switched on yet. The recorded examples show real runs.",
   visitor_limit: `That was your last live question for today (${CHAT_LIMITS.perVisitorPerDay} a day). The recorded examples are still here.`,
   daily_limit: "The demo has used today's live questions. Try again tomorrow, or watch the recorded examples.",
-  budget: "This month's live budget is used up. Ask Mat to add tokens to try it; the recorded examples still work.",
+  budget: "This month's live budget is used up. The recorded examples still work.",
   busy: "The model is busy right now. Try again in a minute.",
   failed: "Something went wrong on our side. Try again, or watch the recorded examples.",
 };
@@ -99,7 +99,7 @@ export function parseAskRequest(body: unknown): Parsed {
 function errorCodeOf(e: unknown): ErrorCode {
   const status = (e as { status?: number })?.status;
   const message = String((e as { message?: string })?.message ?? "");
-  // Anthropic's spend limits (rate limits docs, read 2026-11-14): a limit Mat set answers HTTP
+  // Anthropic's spend limits (rate limits docs, read 2026-11-14): a workspace spend limit answers HTTP
   // 400 "You have reached your specified [workspace] API usage limits"; the tier's monthly cap
   // answers HTTP 429 with error_code enforced_spend_limit_reached and "You have reached your API
   // usage limits", no retry-after. Both are the budget, not "busy".

@@ -2,8 +2,8 @@
 //
 // A lit mark stands out by colour and a modest size step, and always fits inside its own
 // cell. Before 2026-11-14 a lit dot was 2.1 grid dots (1.26 steps wide) and a recall square
-// about one step, so lit marks overlapped and clumped (Mat: "why the dots and squers are so
-// big"; test/web-field.test.ts).
+// about one step, so lit marks overlapped and clumped
+// (test/web-field.test.ts).
 
 export type MarkSizes = {
   dot: number; // radius of a plain grid dot

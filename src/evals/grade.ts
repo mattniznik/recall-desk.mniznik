@@ -1,4 +1,4 @@
-// The eval graders (PLAN.md section 9). Every pass or fail is decided here, by code, from
+// The eval graders. Every pass or fail is decided here, by code, from
 // the answer the run produced and the recorded data the case is about. No model grades.
 //
 // The ground truth is read from the same recordings the agent's tools read

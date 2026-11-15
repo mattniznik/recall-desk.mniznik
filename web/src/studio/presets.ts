@@ -69,7 +69,7 @@ export const OPTIONS: Option[] = [
 ];
 
 // What a first-time visitor sees: Run canvas on Golden hour on paper with Barlow Condensed caps
-// (Mat, 2026-11-14, "for now"; it was rag.irs's default, layout 01).
+// (chosen 2026-11-14; it was rag.irs's default, layout 01).
 export const DEFAULT = { option: "10", palette: "coverPaper", font: "condensed" };
 
 export const PALETTES: Record<string, Palette> = {

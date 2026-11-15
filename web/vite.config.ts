@@ -1,9 +1,8 @@
-// The page builds to static files that S3 serves behind CloudFront (PLAN.md section 5).
+// The page builds to static files that S3 serves behind CloudFront.
 // It imports a few modules from ../src (the store name, and later the trace types), so
 // the dev server is allowed to read the folder above web/.
 //
-// Local preview (`npm run web:dev`, Mat 2026-11-14: "let me see it locally first before
-// deploying"): a fake /api, dev server only (`apply: "serve"`), never in the build. It answers
+// Local preview before deploying (`npm run web:dev`): a fake /api, dev server only (`apply: "serve"`), never in the build. It answers
 // /api/status as live and plays a recorded real run back for /api/ask, one event every
 // 450 ms like the live stream, so the chat can be seen working without calling the model or
 // spending anything. PREVIEW_LIVE=0 shows the page as it is while live answers are off.

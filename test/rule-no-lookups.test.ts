@@ -4,7 +4,7 @@
 //
 // Tightened 2026-11-14 after the full eval (case offtopic-code, one run per model, n=1
 // each): asked for a Python function, Haiku answered with code in 520 characters and Sonnet
-// in 415; both passed the old 600-character limit. Opus declined in 295. Mat: "ok do it".
+// in 415; both passed the old 600-character limit. Opus declined in 295.
 // The limit moved from 600 to 450 characters and code is refused outright; the 600/601
 // boundary test below became 450/451 on purpose. 450 because the good no-lookup refusals in
 // the eval and the replays ran 251 to 384 characters (n=7); 350 sent Opus's weather refusal

@@ -1,7 +1,7 @@
 // Routing and the Evals page's numbers. Plain functions, checked by node --test.
 //
-// An eval run is one version of the agent on one model over the whole case set (PLAN.md
-// section 9). The page shows each run's pass rate, its pass rate per case type, and every
+// An eval run is one version of the agent on one model over the whole case set.
+// The page shows each run's pass rate, its pass rate per case type, and every
 // failure with the reasons the graders gave. With no runs yet it says when they arrive
 // instead of showing a number nobody measured.
 

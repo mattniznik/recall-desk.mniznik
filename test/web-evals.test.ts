@@ -63,7 +63,7 @@ test("with no runs the page says when they arrive and shows no number", () => {
 });
 
 // While live answers are off (no key yet), the landing page must not be a dead end: the
-// Ask route shows the recorded examples instead (Mat, 2026-11-14).
+// Ask route shows the recorded examples instead.
 test("pageFor: the Ask route falls back to the examples while the chat is off", () => {
   assert.equal(pageFor("ask", false), "demo");
   assert.equal(pageFor("ask", true), "ask");

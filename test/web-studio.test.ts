@@ -67,8 +67,8 @@ test("every palette meets the contrast it claims", () => {
   }
 });
 
-// Mat, 2026-11-14 (Studio screenshot): the default is Run canvas (10) with Golden hour on paper
-// and Barlow Condensed caps + DM Sans, "for now"; was 01, rag.irs's default.
+// The default (chosen 2026-11-14) is Run canvas (10) with Golden hour on paper and Barlow
+// Condensed caps + DM Sans; it was 01, rag.irs's default.
 test("fifteen font pairings; the default is golden hour on paper with Barlow Condensed caps", () => {
   assert.equal(Object.keys(FONTS).length, 15);
   assert.deepEqual(DEFAULT, { option: "10", palette: "coverPaper", font: "condensed" });

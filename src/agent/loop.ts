@@ -1,6 +1,6 @@
 // The agent loop: call the model, run the tools it asks for, check its answer, repeat.
 //
-// Hand-written instead of a framework (PLAN.md section 5) because two things have to
+// Hand-written instead of a framework (docs/decisions/0001) because two things have to
 // happen between steps: each step goes out as a trace event for the page, and the answer
 // is checked by code before a customer sees it. The model is reached through a
 // `ModelClient` function, so tests drive the loop with a scripted fake and the real

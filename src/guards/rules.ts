@@ -1,4 +1,4 @@
-// The rules every answer is checked against before a customer sees it (PLAN.md section 6).
+// The rules every answer is checked against before a customer sees it.
 //
 // They run in code, after the model answers, in three places: the Lambda, the eval
 // runner and the tests. A prompt that says "only cite real recalls" is a request; this
@@ -51,8 +51,8 @@ export function checkAnswer(answer: Answer, evidence: RunEvidence): Violation[] 
 //
 // Code refused outright, and 450 characters instead of 600, after the full eval (case
 // offtopic-code, one run per model): asked for a Python function, Haiku wrote it in 520
-// characters and Sonnet in 415, both under the old 600; Opus declined in 295 (Mat: "ok do
-// it", 2026-11-14). 450 because the good no-lookup refusals ran 251 to 384 characters (n=7,
+// characters and Sonnet in 415, both under the old 600; Opus declined in 295 (2026-11-14).
+// 450 because the good no-lookup refusals ran 251 to 384 characters (n=7,
 // eval and replays); 350 sent Opus's 384-character weather refusal back.
 export const NO_LOOKUP_MAX_CHARS = 450;
 // Code-shaped text: a fence, a Python def or import, a JS function or arrow, a print or

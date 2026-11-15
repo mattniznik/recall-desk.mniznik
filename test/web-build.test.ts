@@ -1,4 +1,4 @@
-// The web page builds to plain static files for S3 (PLAN.md section 5: no server
+// The web page builds to plain static files for S3 (no server
 // rendering). This test runs the real Vite build and checks what lands in web/dist: an
 // index.html with the app's root element and a script, and the store name from
 // src/config.ts, so the page and the agent can never name the store differently.

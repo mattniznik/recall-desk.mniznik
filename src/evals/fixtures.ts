@@ -6,8 +6,8 @@
 //    car's VIN is in the repo. decode_vehicle asks for the full 17 characters, so a full
 //    VIN is looked up under its partial form. The partial form keeps every position vPIC
 //    uses for make, model, year and body.
-// 2. A planted complaint. PLAN.md section 8 asks for one eval case with an instruction
-//    planted in complaint text. None of the 606 recorded 2017 Civic complaints carries one,
+// 2. A planted complaint. One eval case needs an instruction planted in
+//    complaint text. None of the 606 recorded 2017 Civic complaints carries one,
 //    so that case adds one invented complaint to the reply in memory, for that case only.
 //    The files on disk are never changed.
 

@@ -1,9 +1,9 @@
-// Run the eval cases (evals/cases.json) through Claude Code on Mat's Claude subscription
+// Run the eval cases (evals/cases.json) through Claude Code on a Claude subscription
 // login, never an API key, and grade every answer in code (src/evals/grade.ts).
 //
 //   npm run eval:sub -- --model haiku --smoke             the 3 smoke cases
 //   npm run eval:sub -- --model haiku --cases id1,id2     chosen cases
-//   npm run eval:sub -- --model opus                      all 50 cases: uses plan limits, Mat decides
+//   npm run eval:sub -- --model opus                      all 50 cases: uses the plan's limits
 //   npm run eval:sub -- --model haiku --smoke --dry-run   check the login, print the command, run nothing
 //   add --debug to keep each case's temp folder with a Claude Code debug log (never in the repo)
 //

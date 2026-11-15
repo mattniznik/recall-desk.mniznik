@@ -6,7 +6,7 @@
 // recorded NHTSA data, with a scripted fake model choosing the steps. No model is called
 // and nothing is spent. The label says exactly that, and the page shows the label, so a
 // scripted run is never passed off as a model's work. Real recordings replace these once
-// a model may be called (PLAN.md section 0, D1).
+// a model may be called.
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

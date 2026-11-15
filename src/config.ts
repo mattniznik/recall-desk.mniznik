@@ -1,8 +1,8 @@
 // Settings shared by the tools, the agent, the Lambda handler and the page.
 //
-// The store is fictional and has no brand: Mat chose the plain "Auto Parts Store" on
-// 2026-11-13 so no real retailer's name can appear, and dropped the "(fictional)" suffix the
-// same day (PLAN.md D4). The system prompt still tells the model the store is fictional.
+// The store is fictional and has no brand: the plain "Auto Parts Store" (chosen 2026-11-13)
+// means no real retailer's name can appear, and the "(fictional)" suffix was dropped the same
+// day. The system prompt still tells the model the store is fictional.
 
 export const STORE_NAME = "Auto Parts Store";
 

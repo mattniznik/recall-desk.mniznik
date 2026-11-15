@@ -1,4 +1,4 @@
-// The eval graders (PLAN.md section 9): every pass or fail is decided by code. Each check
+// The eval graders: every pass or fail is decided by code. Each check
 // gets a known-good answer that must pass and a known-bad one that must fail, graded
 // against the same recorded NHTSA data and catalog the eval runs on.
 

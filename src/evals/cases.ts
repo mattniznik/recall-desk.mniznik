@@ -1,4 +1,4 @@
-// The eval cases (PLAN.md section 9): a question, the vehicle its answer is checked
+// The eval cases: a question, the vehicle its answer is checked
 // against, and what the code grader checks. The cases live in evals/cases.json; this file
 // is their type and the loader, which refuses a malformed file instead of grading it.
 

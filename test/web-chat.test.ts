@@ -42,8 +42,7 @@ test("sha256Hex matches Node's hash of the same text", async () => {
   assert.equal(await sha256Hex(body), createHash("sha256").update(body, "utf8").digest("hex"));
 });
 
-// "What to try" (Mat, 2026-11-14: "give more pre definied options ... so the user / hiring
-// manager knows what to ask about"): every capability and every guard has a question, each
+// "What to try", so a visitor knows what to ask about: every capability and every guard has a question, each
 // fits the server's limit, and none repeats.
 test("the suggested questions cover each kind of question and fit the limit", async () => {
   const { SUGGESTIONS } = await import("../web/src/chat.ts");

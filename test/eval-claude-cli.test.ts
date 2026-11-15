@@ -1,7 +1,7 @@
 // The subscription eval runner's pure parts: the claude command line, the environment it
-// runs in, the login check, and reading its JSON result. The rule these guard is Mat's:
-// Claude runs only on his subscription login, never on an API key, and the eval run sees
-// none of his own Claude Code setup (CLAUDE.md, memory, hooks, plugins, other MCP servers).
+// runs in, the login check, and reading its JSON result. The rule these guard:
+// Claude runs only on a subscription login, never on an API key, and the eval run sees
+// none of the developer's own Claude Code setup (CLAUDE.md, memory, hooks, plugins, other MCP servers).
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -48,7 +48,7 @@ test("the command line: restricted print mode, only our MCP server, no built-in 
   assert.equal(args.at(-2), "--", "the question can never be read as a flag");
 });
 
-test("the child environment: no API key or token can reach claude, and Mat's setup is switched off", () => {
+test("the child environment: no API key or token can reach claude, and the developer's own setup is switched off", () => {
   const env = childEnv({
     PATH: "C:/bin",
     USERPROFILE: "C:/Users/x",

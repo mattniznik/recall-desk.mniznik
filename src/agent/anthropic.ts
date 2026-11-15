@@ -1,6 +1,6 @@
 // The ModelClient the agent loop uses, backed by the Anthropic SDK.
 //
-// Settings, each from PLAN.md decision D2 or the Claude API skill's notes for Opus 5.5:
+// Settings, each from docs/decisions/0008 or Anthropic's documentation for Opus 5.5:
 // - claude-opus-5-5 at effort "low": thinking cannot be turned off on this model, effort
 //   is the control, and its default is "medium".
 // - Adaptive thinking with display "summarized", so a trace can show a one-line why.

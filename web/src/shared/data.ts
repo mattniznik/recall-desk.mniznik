@@ -26,9 +26,9 @@ export const EVALS = evalsView(EVAL_RUNS);
 export type BuiltData = { repo: string | null; steps: { title: string; text: string; fact: string; url: string | null }[]; badge: string | null; links: { label: string; url: string }[] };
 export const BUILT = site.built as BuiltData;
 
-// The disclaimer every layout ends with (PLAN.md section 7), word for word as before the layouts.
+// The disclaimer every layout ends with, word for word as before the layouts.
 export const DISCLAIMER =
   "Fictional store for a demo. Not affiliated with NHTSA, any manufacturer or any retailer. Recall data from NHTSA. For the official recall status of one car, check nhtsa.gov/recalls with its VIN.";
 
-// What the system is made of (PLAN.md section 5), for the footers.
+// What the system is made of, for the footers.
 export const STACK = ["TypeScript", "React", "Vite", site.model.name, "NHTSA APIs", "AWS Lambda", "CloudFront", "DynamoDB", "Cloudflare Turnstile"];

@@ -2,13 +2,13 @@
 // `claude -p` command line, the environment it runs in, the login check, and reading its
 // JSON result. Kept apart from the runner so tests can check them without starting Claude.
 //
-// Mat's rule: Claude runs on his Claude subscription login only, never on an API key. So
+// The rule: evals run on a Claude subscription login only, never on an API key. So
 // the child gets no ANTHROPIC_* variable at all, --bare is never used (bare mode never
 // reads the OAuth login and needs a key: code.claude.com/docs/en/headless, "Start faster
 // with bare mode"), and the runner refuses to start unless `claude auth status` reports a
 // claude.ai login.
 //
-// Isolation from Mat's own Claude Code setup, each flag from code.claude.com/docs/en/
+// Isolation from the developer's own Claude Code setup, each flag from code.claude.com/docs/en/
 // cli-reference unless noted (read 2026-11-14, Claude Code 2.1.314):
 // - --restricted: "Use it when an evaluation harness drives claude on a shared machine";
 //   loads only managed settings and --settings, so no user, project or local settings
