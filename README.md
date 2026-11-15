@@ -17,7 +17,7 @@ questions each on Claude Haiku 5.5, Sonnet 5.5 and Opus 5.5, passed 44, 46 and 5
 piece, as a recorded or live answer plays, with a 16-step tour of the run where the safety rule sent the first
 answer back. The demo comes in 12 layouts, 21 colour sets and 15 typefaces, with the same answers and numbers in
 all of them; the default is layout 10, Run canvas. The **Studio** button lets a visitor pick a look, and the pick
-is saved in their browser for the next visit. See [The demo page](#the-demo-page-twelve-layouts-and-a-studio).
+is saved in their browser for the next visit. See [Design](#design-on-the-web-and-on-a-phone).
 
 <a href="https://recall-desk.mniznik.com"><img alt="The default look, layout 10 Run canvas, at 1280 pixels: the recorded runs in a rail on the left, the system map lit for the brakes run, with each tool and the NHTSA endpoint it reads." src="docs/img/layouts/default-1280.jpeg" width="760"></a>
 
@@ -95,137 +95,7 @@ flowchart LR
 7. **Seeing it** ([web/src/system-map.ts](web/src/system-map.ts),
    [web/src/shared/SystemMap.tsx](web/src/shared/SystemMap.tsx)). The page draws steps 1 to 6 as one map and lights
    each piece as a run reaches it, from the same trace events the loop emits and the live stream carries
-   ([The demo page](#the-demo-page-twelve-layouts-and-a-studio)).
-
-## The demo page: twelve layouts and a Studio
-
-The page is React built by Vite into static files ([web/](web/)). It comes in twelve layouts in three families:
-four built from sections (01, 04 to 06: a hero holding the desk, what the agent promises, how it answers, the
-measured runs, how it was built) and three one-column pages (07 to 09), both ported from the sister project
-[rag.irs.mniznik](https://github.com/mattniznik/rag.irs.mniznik); and five built around the system map (10 to 14),
-each from one design reference, with the patterns borrowed and no logo, product name,
-illustration or copy taken. Any of 21 colour sets and 15 typefaces can go on top. The desk, the recorded runs, the
-system map and every number are the same in all of them. Each picture links to that layout (`?layout=NN`) on the
-live site.
-
-<table>
-<tr>
-<td width="50%"><a href="https://recall-desk.mniznik.com/?layout=01"><img alt="Layout 01, Ask anything" src="docs/img/layouts/layout-01.jpeg"></a><br><b>01 Ask anything</b>. The chat up front, each answer with its trace right under it, then a field of dots that shows one real run.</td>
-<td width="50%"><a href="https://recall-desk.mniznik.com/?layout=04"><img alt="Layout 04, Under the hood" src="docs/img/layouts/layout-04.jpeg"></a><br><b>04 Under the hood</b>. For engineers: a real run as a log, the agent as a figure, the measured runs as a table.</td>
-</tr>
-<tr>
-<td><a href="https://recall-desk.mniznik.com/?layout=05"><img alt="Layout 05, Scroll story" src="docs/img/layouts/layout-05.jpeg"></a><br><b>05 Scroll story</b>. The NHTSA record beside the answer that read it; one run walks through the agent as you scroll.</td>
-<td><a href="https://recall-desk.mniznik.com/?layout=06"><img alt="Layout 06, Editorial" src="docs/img/layouts/layout-06.jpeg"></a><br><b>06 Editorial</b>. Paper and serif: a real answer with its recalls as footnotes, one run stepped through in a player.</td>
-</tr>
-<tr>
-<td><a href="https://recall-desk.mniznik.com/?layout=07"><img alt="Layout 07, the simple one-column page" src="docs/img/layouts/layout-07.jpeg"></a><br><b>07 Simple: moving line</b>. One plain column, the way the demo started. A dot carries the question through the steps.</td>
-<td><a href="https://recall-desk.mniznik.com/?layout=08"><img alt="Layout 08, one column on black" src="docs/img/layouts/layout-08.jpeg"></a><br><b>08 Simple: golden field</b>. One column on black. One dot per owner complaint, narrowing to one checked answer.</td>
-</tr>
-<tr>
-<td><a href="https://recall-desk.mniznik.com/?layout=09"><img alt="Layout 09, one column on paper" src="docs/img/layouts/layout-09.jpeg"></a><br><b>09 Simple: step-through</b>. One column on paper. A player walks one real run through every step.</td>
-<td><a href="https://recall-desk.mniznik.com/?layout=10"><img alt="Layout 10, Run canvas" src="docs/img/layouts/layout-10.jpeg"></a><br><b>10 Run canvas</b> (the default layout). A workflow canvas: the recorded runs in a rail, the system map in the middle lighting up step by step, the desk as its log panel.</td>
-</tr>
-<tr>
-<td><a href="https://recall-desk.mniznik.com/?layout=11"><img alt="Layout 11, Trace waterfall" src="docs/img/layouts/layout-11.jpeg"></a><br><b>11 Trace waterfall</b>. An observability view: one real run as a tree of spans with measured bars, a detail panel, and the map lit by the row you pick.</td>
-<td><a href="https://recall-desk.mniznik.com/?layout=12"><img alt="Layout 12, Workshop sheet" src="docs/img/layouts/layout-12.jpeg"></a><br><b>12 Workshop sheet</b>. Cream and orange: a tab per tool beside the map on graph paper, each with the endpoint it reads and a real call.</td>
-</tr>
-<tr>
-<td><a href="https://recall-desk.mniznik.com/?layout=13"><img alt="Layout 13, Spec sheet" src="docs/img/layouts/layout-13.jpeg"></a><br><b>13 Spec sheet</b>. Dark and technical: a numbered index down the side, the map as Fig. 1 with numbered callouts, the rules as a table.</td>
-<td><a href="https://recall-desk.mniznik.com/?layout=14"><img alt="Layout 14, Status cards" src="docs/img/layouts/layout-14.jpeg"></a><br><b>14 Status cards</b>. Friendly, like a car app: each piece of the agent as a card with its status. Tap one to find it on the map.</td>
-</tr>
-<tr>
-<td colspan="2"><img alt="The Studio on a phone: a bottom sheet with the layouts, colour sets and typefaces, open over the default look" src="docs/img/layouts/studio-390.jpeg" width="260"><br><b>The Studio on a phone</b>, a bottom sheet, open over the default look.</td>
-</tr>
-</table>
-
-The pictures are 390 by 844 phone captures of the production build, served locally with `vite preview` on
-2026-11-14. A `?layout=` link shows each layout in its own colours and type, so layout 10 is dark here, while the
-default look at the top of this page puts it on paper. With no server behind the local copy, live answers are off
-and the desk opens on the Examples, as it does whenever live answers are off.
-
-**The desk** is the same in every layout ([web/src/App.tsx](web/src/App.tsx)), with three tabs:
-
-- **Ask** - a chat box with the Turnstile check, how many live questions are left today, and suggested
-  questions. Each answer streams its trace as the agent works, then a line with the model calls, tokens, cost
-  and seconds. Follow-ups carry the last three answered exchanges, each cut to 2,000 characters, as context only
-  ([decision 0006](docs/decisions/0006-chat-history-is-context-not-evidence.md)). Shown only while live answers
-  are on.
-- **Examples** - the recorded runs: 6 real Claude runs, one per kind of question, then 2 scripted ones whose
-  label says no model was called. The trace fills in step by step, as it did live.
-- **Evals** - the three graded eval runs: each run's pass rate, its pass rate per case type, and every failure
-  with the graders' reasons ([Evaluation](#evaluation)).
-
-**The system map** ([shared/SystemMap.tsx](web/src/shared/SystemMap.tsx)) is on all twelve layouts. It draws the
-whole system as one graph: the visitor; CloudFront, the Lambda function, Turnstile and the limits in front; the
-agent loop and Claude Opus 5.5; the seven tools, each with the NHTSA endpoint or store file it reads; the six
-rules; and the two ways a run ends, an answer shown or a person. It lights the path of whatever the page is
-playing, event by event: a recorded run on the Examples tab as its trace rows appear, or a live answer as it
-streams, with captions that carry that run's own numbers. A recorded run plays once when the map first scrolls
-into view. "Take the tour" steps through the Ranger park-it run in 16 steps, a sentence per piece, the rule sending
-the first answer back included. Hovering, focusing or tapping a piece gives one sentence on what it is. Below 860
-pixels wide the map is drawn top to bottom, so a phone never scrolls sideways.
-
-**Picking a look.** The Studio button sits in the nav of the section-built and map-first layouts and floats on
-the one-column ones. It opens a drawer (a bottom sheet on a phone) with the layouts, the colour sets and the
-typefaces. A pick is saved in the visitor's browser (`localStorage`, key `recall-desk-choice`) and the page
-reloads into it, with the panel open where it was; "Back to the default" clears it. A link such as
-[`?layout=08`](https://recall-desk.mniznik.com/?layout=08) shows a layout without saving it, and the panel says
-whether the look on screen came from a link, a saved pick or the default. Nothing about the pick is sent anywhere:
-the page has no analytics or visit events.
-
-**How the page is put together** ([web/src/](web/src/)):
-
-- [studio/presets.ts](web/src/studio/presets.ts) holds the 12 layouts, 21 colour sets, 15 typefaces and the
-  default: layout 10, Run canvas, in "Golden hour on paper" with Barlow Condensed caps and DM Sans, the owner's
-  pick on 2026-11-14, marked "for now" there.
-- Before anything else, an inline script from [studio/boot.ts](web/src/studio/boot.ts) paints the background of the
-  look about to show, so a dark look does not flash white, and keeps the page hidden until it has rendered, or
-  6 seconds at most.
-- [main.tsx](web/src/main.tsx) asks [studio/choice.ts](web/src/studio/choice.ts) what to show: a `?layout=` link,
-  else the saved pick, else the default. A link or saved pick naming a layout that does not exist falls back; a
-  colour set or typeface that does not exist is replaced by the layout's own. That logic is pure and tested in
-  [test/web-studio.test.ts](test/web-studio.test.ts) (14 tests) and [test/web-boot.test.ts](test/web-boot.test.ts)
-  (3 tests, which run the inline script against the same choice).
-- [studio/theme.ts](web/src/studio/theme.ts) turns the colour set into CSS variables and builds the Google Fonts
-  link. The page then loads only its layout family's code and styles:
-  [rich/RichPage.tsx](web/src/rich/RichPage.tsx) for the four section-built layouts,
-  [simple/SimplePage.tsx](web/src/simple/SimplePage.tsx) for the three one-column ones, and
-  [looks/LookPage.tsx](web/src/looks/LookPage.tsx) with [looks/looks.css](web/src/looks/looks.css) for the five
-  map-first ones.
-- [system-map.ts](web/src/system-map.ts) holds the map's graph and decides which piece and path each event lights,
-  and every caption, with no React or DOM in it (14 tests,
-  [test/web-system-map.test.ts](test/web-system-map.test.ts)). [map-feed.ts](web/src/map-feed.ts) hands the map
-  whichever run is playing; [shared/SystemMap.tsx](web/src/shared/SystemMap.tsx) and
-  [shared/map.css](web/src/shared/map.css) draw it.
-- [shared/How.tsx](web/src/shared/How.tsx) draws "How it works" on the older layouts, each on a recorded real run:
-  a field of one dot per owner complaint (01, 08), a player (06, 09), a scroll story (05), a pipeline figure (04)
-  and a moving line (07). The dot field's mark sizes are in [shared/field.ts](web/src/shared/field.ts) (2 tests,
-  [test/web-field.test.ts](test/web-field.test.ts)). [shared/Built.tsx](web/src/shared/Built.tsx) is "How it was
-  built". The Studio itself is [studio/Studio.tsx](web/src/studio/Studio.tsx).
-- No number on the page is typed in. [scripts/export-site.ts](scripts/export-site.ts) (`npm run site:export`) writes
-  [web/src/site-data.json](web/src/site-data.json): it runs the test suite and reads its totals, refusing while any
-  test fails, then reads the recorded runs, the agent's tools, limits and model, the rule ids, the recordings'
-  manifest and these decision records. Its pure parts have 13 tests
-  ([test/web-site-data.test.ts](test/web-site-data.test.ts)).
-- `npm run web:dev` serves a local stand-in for `/api/status` and `/api/ask` that plays the recorded runs back,
-  picked by keyword, with Cloudflare's Turnstile test key ([web/vite.config.ts](web/vite.config.ts)). No model is
-  called.
-
-**Colour, motion and keyboard.**
-
-- Every colour set passes a contrast check: body and muted text 4.5:1 or more on the background, the accent 3:1,
-  and button text 4.5:1 on each accent colour (tests "every palette meets the contrast it claims" and "each
-  map-first layout brings its own palette and typeface, and they pass the contrast checks").
-- Animations stop when the system asks for reduced motion. The system map then moves nothing and plays nothing on
-  its own: each step is still lit, and every step is listed. The dot field shows its last frame, the player waits
-  for a click, the dot on the line does not travel.
-- The Studio is a modal dialog: it takes the keyboard focus, keeps Tab inside, and closes on Esc. The map's pieces
-  answer to keyboard focus as well as to hover and tap.
-- The typefaces load from Google Fonts, as on the sister project; what that sends to Google is in
-  [SECURITY.md](SECURITY.md).
-
-The footer says it in every layout: a fictional store for a demo, not affiliated with NHTSA, any manufacturer or
-any retailer, and the official recall status of one car is at nhtsa.gov/recalls with its VIN.
+   ([Design](#design-on-the-web-and-on-a-phone)).
 
 ## The eval set
 
@@ -560,6 +430,185 @@ here (n=6).
   `submit_answer` is not a strict tool, Claude Code adds its own request settings and a closing turn, and a model
   that stops without `submit_answer` gets no reminder. A pass rate from these runs describes the same prompt,
   tools, data and rules reached another way, not the live demo's own API calls.
+
+## Design: on the web and on a phone
+
+The page is React built by Vite into static files ([web/](web/)). It comes in twelve layouts in three families:
+four built from sections (01, 04 to 06: a hero holding the desk, what the agent promises, how it answers, the
+measured runs, how it was built) and three one-column pages (07 to 09), both ported from the sister project
+[rag.irs.mniznik](https://github.com/mattniznik/rag.irs.mniznik); and five built around the system map (10 to 14),
+each from one design reference, with the patterns borrowed and no logo, product name,
+illustration or copy taken. Any of 21 colour sets and 15 typefaces can go on top. The desk, the recorded runs, the
+system map and every number are the same in all of them, on a desktop and on a phone. Each picture links to that
+layout (`?layout=NN`) on the live site.
+
+**On a phone.** Each layout is laid out again for a narrow screen rather than shrunk:
+
+- Panels that sit side by side on a desktop stack into one column, and below 860 pixels wide the system map is
+  drawn top to bottom. None of the twelve layouts scrolls sideways at 390 pixels wide (measured on the live site
+  on 2026-11-14: 0 pixels of overflow on each, n=12).
+- In the map-first layouts the nav shrinks to the store name, the Studio button and one call to action (10, 11
+  and 14 below), and 14 Status cards adds a bottom tab bar, as a phone app would.
+- The Studio is a side panel on a desktop and a bottom sheet on a phone (the last row below).
+
+<table>
+<tr><th>On the web</th><th>On a phone</th></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=01"><img alt="Layout 01, Ask anything, on the web at 1280 pixels" src="docs/img/layouts/layout-01-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=01"><img alt="Layout 01, Ask anything, on a phone at 390 pixels" src="docs/img/layouts/layout-01.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>01 Ask anything</b>. The chat up front, each answer with its trace right under it, then a field of dots that shows one real run.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=04"><img alt="Layout 04, Under the hood, on the web at 1280 pixels" src="docs/img/layouts/layout-04-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=04"><img alt="Layout 04, Under the hood, on a phone at 390 pixels" src="docs/img/layouts/layout-04.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>04 Under the hood</b>. For engineers: a real run as a log, the agent as a figure, the measured runs as a table.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=05"><img alt="Layout 05, Scroll story, on the web at 1280 pixels" src="docs/img/layouts/layout-05-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=05"><img alt="Layout 05, Scroll story, on a phone at 390 pixels" src="docs/img/layouts/layout-05.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>05 Scroll story</b>. The NHTSA record beside the answer that read it; one run walks through the agent as you scroll.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=06"><img alt="Layout 06, Editorial, on the web at 1280 pixels" src="docs/img/layouts/layout-06-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=06"><img alt="Layout 06, Editorial, on a phone at 390 pixels" src="docs/img/layouts/layout-06.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>06 Editorial</b>. Paper and serif: a real answer with its recalls as footnotes, one run stepped through in a player.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=07"><img alt="Layout 07, Simple: moving line, on the web at 1280 pixels" src="docs/img/layouts/layout-07-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=07"><img alt="Layout 07, Simple: moving line, on a phone at 390 pixels" src="docs/img/layouts/layout-07.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>07 Simple: moving line</b>. One plain column, the way the demo started. A dot carries the question through the steps.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=08"><img alt="Layout 08, Simple: golden field, on the web at 1280 pixels" src="docs/img/layouts/layout-08-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=08"><img alt="Layout 08, Simple: golden field, on a phone at 390 pixels" src="docs/img/layouts/layout-08.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>08 Simple: golden field</b>. One column on black. One dot per owner complaint, narrowing to one checked answer.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=09"><img alt="Layout 09, Simple: step-through, on the web at 1280 pixels" src="docs/img/layouts/layout-09-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=09"><img alt="Layout 09, Simple: step-through, on a phone at 390 pixels" src="docs/img/layouts/layout-09.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>09 Simple: step-through</b>. One column on paper. A player walks one real run through every step.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=10"><img alt="Layout 10, Run canvas, on the web at 1280 pixels" src="docs/img/layouts/layout-10-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=10"><img alt="Layout 10, Run canvas, on a phone at 390 pixels" src="docs/img/layouts/layout-10.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>10 Run canvas</b> (the default layout). A workflow canvas: the recorded runs in a rail, the system map in the middle lighting up step by step, the desk as its log panel.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=11"><img alt="Layout 11, Trace waterfall, on the web at 1280 pixels" src="docs/img/layouts/layout-11-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=11"><img alt="Layout 11, Trace waterfall, on a phone at 390 pixels" src="docs/img/layouts/layout-11.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>11 Trace waterfall</b>. An observability view: one real run as a tree of spans with measured bars, a detail panel, and the map lit by the row you pick.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=12"><img alt="Layout 12, Workshop sheet, on the web at 1280 pixels" src="docs/img/layouts/layout-12-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=12"><img alt="Layout 12, Workshop sheet, on a phone at 390 pixels" src="docs/img/layouts/layout-12.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>12 Workshop sheet</b>. Cream and orange: a tab per tool beside the map on graph paper, each with the endpoint it reads and a real call.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=13"><img alt="Layout 13, Spec sheet, on the web at 1280 pixels" src="docs/img/layouts/layout-13-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=13"><img alt="Layout 13, Spec sheet, on a phone at 390 pixels" src="docs/img/layouts/layout-13.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>13 Spec sheet</b>. Dark and technical: a numbered index down the side, the map as Fig. 1 with numbered callouts, the rules as a table.</td></tr>
+<tr>
+<td><a href="https://recall-desk.mniznik.com/?layout=14"><img alt="Layout 14, Status cards, on the web at 1280 pixels" src="docs/img/layouts/layout-14-1280.jpeg" width="600"></a></td>
+<td align="center"><a href="https://recall-desk.mniznik.com/?layout=14"><img alt="Layout 14, Status cards, on a phone at 390 pixels" src="docs/img/layouts/layout-14.jpeg" width="200"></a></td>
+</tr>
+<tr><td colspan="2"><b>14 Status cards</b>. Friendly, like a car app: each piece of the agent as a card with its status. Tap one to find it on the map.</td></tr>
+<tr>
+<td><img alt="The Studio on the web: a side panel with the layouts, colour sets and typefaces, open over the default look" src="docs/img/layouts/studio-1280.jpeg" width="600"></td>
+<td align="center"><img alt="The Studio on a phone: a bottom sheet with the layouts, colour sets and typefaces, open over the default look" src="docs/img/layouts/studio-390.jpeg" width="200"></td>
+</tr>
+<tr><td colspan="2"><b>The Studio</b>, open over the default look: a side panel on the web, a bottom sheet on a phone, with the 12 layouts, 21 colour sets and 15 typefaces.</td></tr>
+</table>
+
+The web pictures are 1280 by 800 captures of the live site on 2026-11-14, where the desk opens on Ask. The phone
+pictures are 390 by 844 captures of the production build served locally with `vite preview` the same day; with
+no server behind that copy, live answers are off and the desk opens on the Examples, as it does whenever live
+answers are off. A `?layout=` link shows each layout in its own colours and type, so layout 10 is dark here, while
+the default look at the top of this page puts it on paper.
+
+**The desk** is the same in every layout ([web/src/App.tsx](web/src/App.tsx)), with three tabs:
+
+- **Ask** - a chat box with the Turnstile check, how many live questions are left today, and suggested
+  questions. Each answer streams its trace as the agent works, then a line with the model calls, tokens, cost
+  and seconds. Follow-ups carry the last three answered exchanges, each cut to 2,000 characters, as context only
+  ([decision 0006](docs/decisions/0006-chat-history-is-context-not-evidence.md)). Shown only while live answers
+  are on.
+- **Examples** - the recorded runs: 6 real Claude runs, one per kind of question, then 2 scripted ones whose
+  label says no model was called. The trace fills in step by step, as it did live.
+- **Evals** - the three graded eval runs: each run's pass rate, its pass rate per case type, and every failure
+  with the graders' reasons ([Evaluation](#evaluation)).
+
+**The system map** ([shared/SystemMap.tsx](web/src/shared/SystemMap.tsx)) is on all twelve layouts. It draws the
+whole system as one graph: the visitor; CloudFront, the Lambda function, Turnstile and the limits in front; the
+agent loop and Claude Opus 5.5; the seven tools, each with the NHTSA endpoint or store file it reads; the six
+rules; and the two ways a run ends, an answer shown or a person. It lights the path of whatever the page is
+playing, event by event: a recorded run on the Examples tab as its trace rows appear, or a live answer as it
+streams, with captions that carry that run's own numbers. A recorded run plays once when the map first scrolls
+into view. "Take the tour" steps through the Ranger park-it run in 16 steps, a sentence per piece, the rule sending
+the first answer back included. Hovering, focusing or tapping a piece gives one sentence on what it is. Below 860
+pixels wide the map is drawn top to bottom, so a phone never scrolls sideways.
+
+**Picking a look.** The Studio button sits in the nav of the section-built and map-first layouts and floats on
+the one-column ones. It opens a drawer (a bottom sheet on a phone) with the layouts, the colour sets and the
+typefaces. A pick is saved in the visitor's browser (`localStorage`, key `recall-desk-choice`) and the page
+reloads into it, with the panel open where it was; "Back to the default" clears it. A link such as
+[`?layout=08`](https://recall-desk.mniznik.com/?layout=08) shows a layout without saving it, and the panel says
+whether the look on screen came from a link, a saved pick or the default. Nothing about the pick is sent anywhere:
+the page has no analytics or visit events.
+
+**How the page is put together** ([web/src/](web/src/)):
+
+- [studio/presets.ts](web/src/studio/presets.ts) holds the 12 layouts, 21 colour sets, 15 typefaces and the
+  default: layout 10, Run canvas, in "Golden hour on paper" with Barlow Condensed caps and DM Sans, the owner's
+  pick on 2026-11-14, marked "for now" there.
+- Before anything else, an inline script from [studio/boot.ts](web/src/studio/boot.ts) paints the background of the
+  look about to show, so a dark look does not flash white, and keeps the page hidden until it has rendered, or
+  6 seconds at most.
+- [main.tsx](web/src/main.tsx) asks [studio/choice.ts](web/src/studio/choice.ts) what to show: a `?layout=` link,
+  else the saved pick, else the default. A link or saved pick naming a layout that does not exist falls back; a
+  colour set or typeface that does not exist is replaced by the layout's own. That logic is pure and tested in
+  [test/web-studio.test.ts](test/web-studio.test.ts) (14 tests) and [test/web-boot.test.ts](test/web-boot.test.ts)
+  (3 tests, which run the inline script against the same choice).
+- [studio/theme.ts](web/src/studio/theme.ts) turns the colour set into CSS variables and builds the Google Fonts
+  link. The page then loads only its layout family's code and styles:
+  [rich/RichPage.tsx](web/src/rich/RichPage.tsx) for the four section-built layouts,
+  [simple/SimplePage.tsx](web/src/simple/SimplePage.tsx) for the three one-column ones, and
+  [looks/LookPage.tsx](web/src/looks/LookPage.tsx) with [looks/looks.css](web/src/looks/looks.css) for the five
+  map-first ones.
+- [system-map.ts](web/src/system-map.ts) holds the map's graph and decides which piece and path each event lights,
+  and every caption, with no React or DOM in it (14 tests,
+  [test/web-system-map.test.ts](test/web-system-map.test.ts)). [map-feed.ts](web/src/map-feed.ts) hands the map
+  whichever run is playing; [shared/SystemMap.tsx](web/src/shared/SystemMap.tsx) and
+  [shared/map.css](web/src/shared/map.css) draw it.
+- [shared/How.tsx](web/src/shared/How.tsx) draws "How it works" on the older layouts, each on a recorded real run:
+  a field of one dot per owner complaint (01, 08), a player (06, 09), a scroll story (05), a pipeline figure (04)
+  and a moving line (07). The dot field's mark sizes are in [shared/field.ts](web/src/shared/field.ts) (2 tests,
+  [test/web-field.test.ts](test/web-field.test.ts)). [shared/Built.tsx](web/src/shared/Built.tsx) is "How it was
+  built". The Studio itself is [studio/Studio.tsx](web/src/studio/Studio.tsx).
+- No number on the page is typed in. [scripts/export-site.ts](scripts/export-site.ts) (`npm run site:export`) writes
+  [web/src/site-data.json](web/src/site-data.json): it runs the test suite and reads its totals, refusing while any
+  test fails, then reads the recorded runs, the agent's tools, limits and model, the rule ids, the recordings'
+  manifest and these decision records. Its pure parts have 13 tests
+  ([test/web-site-data.test.ts](test/web-site-data.test.ts)).
+- `npm run web:dev` serves a local stand-in for `/api/status` and `/api/ask` that plays the recorded runs back,
+  picked by keyword, with Cloudflare's Turnstile test key ([web/vite.config.ts](web/vite.config.ts)). No model is
+  called.
+
+**Colour, motion and keyboard.**
+
+- Every colour set passes a contrast check: body and muted text 4.5:1 or more on the background, the accent 3:1,
+  and button text 4.5:1 on each accent colour (tests "every palette meets the contrast it claims" and "each
+  map-first layout brings its own palette and typeface, and they pass the contrast checks").
+- Animations stop when the system asks for reduced motion. The system map then moves nothing and plays nothing on
+  its own: each step is still lit, and every step is listed. The dot field shows its last frame, the player waits
+  for a click, the dot on the line does not travel.
+- The Studio is a modal dialog: it takes the keyboard focus, keeps Tab inside, and closes on Esc. The map's pieces
+  answer to keyboard focus as well as to hover and tap.
+- The typefaces load from Google Fonts, as on the sister project; what that sends to Google is in
+  [SECURITY.md](SECURITY.md).
+
+The footer says it in every layout: a fictional store for a demo, not affiliated with NHTSA, any manufacturer or
+any retailer, and the official recall status of one car is at nhtsa.gov/recalls with its VIN.
 
 ## License
 
