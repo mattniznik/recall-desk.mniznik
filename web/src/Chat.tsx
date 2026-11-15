@@ -162,13 +162,14 @@ export function Chat({ live }: { live: boolean | null }) {
               }
             }}
           />
+          {/* inside the box, bottom right, where the question is typed; enabled once the bot check below passes */}
+          <button type="submit" className="send" disabled={busy || !human.token || !question.trim()}>
+            {busy ? "Working..." : "Ask"}
+          </button>
         </div>
         <WhatToTry onPick={(q) => setQuestion(q)} />
         <div className="chat-actions">
           <div ref={human.box} />
-          <button type="submit" className="send" disabled={busy || !human.token || !question.trim()}>
-            {busy ? "Working..." : "Ask"}
-          </button>
           <span className="left">
             {left === null ? `${CHAT_LIMITS.perVisitorPerDay} live questions a day.` : `${left} live question${left === 1 ? "" : "s"} left today.`}
           </span>
