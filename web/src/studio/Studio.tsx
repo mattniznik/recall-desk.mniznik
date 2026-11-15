@@ -125,14 +125,14 @@ export function Studio({ choice, placement }: { choice: Choice; placement: "nav"
   };
 
   const lay = (x: (typeof OPTIONS)[number]) => (
-    <button type="button" key={x.id} className={`sp-lay${x.id === choice.option ? " on" : ""}`} aria-pressed={x.id === choice.option} onClick={() => pick({ option: x.id }, x.id === choice.option)}>
+    <button type="button" key={x.id} className={`sp-lay${x.id === choice.option ? " on" : ""}`} aria-pressed={x.id === choice.option} data-o={x.id} onClick={() => pick({ option: x.id }, x.id === choice.option)}>
       <Swatch p={PALETTES[x.cfg.palette]} />
       <b>{x.name}</b>
       <small>{x.short}</small>
     </button>
   );
   const pal = ([k, p]: [string, Palette]) => (
-    <button type="button" key={k} className={`sp-pal${k === choice.palette ? " on" : ""}`} title={p.name} aria-label={p.name} aria-pressed={k === choice.palette} onClick={() => pick({ palette: k }, true)}>
+    <button type="button" key={k} className={`sp-pal${k === choice.palette ? " on" : ""}`} title={p.name} aria-label={p.name} aria-pressed={k === choice.palette} data-p={k} onClick={() => pick({ palette: k }, true)}>
       <Swatch p={p} />
     </button>
   );
@@ -193,7 +193,7 @@ export function Studio({ choice, placement }: { choice: Choice; placement: "nav"
               </div>
               <div className="sp-fonts">
                 {Object.entries(FONTS).map(([k, f]) => (
-                  <button type="button" key={k} className={`sp-font${k === choice.font ? " on" : ""}`} aria-pressed={k === choice.font} onClick={() => pick({ font: k }, true)}>
+                  <button type="button" key={k} className={`sp-font${k === choice.font ? " on" : ""}`} aria-pressed={k === choice.font} data-f={k} onClick={() => pick({ font: k }, true)}>
                     <span style={{ fontFamily: f.head, fontWeight: f.hw, textTransform: f.caps ? "uppercase" : undefined }}>Recall answers you can check</span>
                     <small>{f.name}</small>
                   </button>

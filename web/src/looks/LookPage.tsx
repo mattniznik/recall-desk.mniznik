@@ -199,6 +199,7 @@ function Canvas({ choice, live }: PageProps) {
                   type="button"
                   className={`lk-run ${runTone(r.key)}${on === r.key ? " on" : ""}`}
                   aria-pressed={on === r.key}
+                  data-ex={r.key}
                   onClick={() => {
                     setOn(r.key);
                     playRun(r.key, "rail");
@@ -401,6 +402,7 @@ function Waterfall({ choice, live }: PageProps) {
               type="button"
               key={x.key}
               aria-pressed={x.key === key}
+              data-ex={x.key}
               onClick={() => {
                 setKey(x.key);
                 setSel("root");
@@ -556,7 +558,7 @@ function Workshop({ choice, live }: PageProps) {
                   <span>time</span>
                   <b>{call.ms} ms</b>
                 </div>
-                <button type="button" className="btn" onClick={() => playRun(call.key, "sheet")}>
+                <button type="button" className="btn" data-ex={call.key} onClick={() => playRun(call.key, "sheet")}>
                   Play this run on the map
                 </button>
               </>
@@ -605,7 +607,7 @@ function RuleCatch() {
           <b>{v.detail}</b>
         </div>
       )}
-      <button type="button" className="btn" onClick={() => playRun(r.key, "sheet")}>
+      <button type="button" className="btn" data-ex={r.key} onClick={() => playRun(r.key, "sheet")}>
         Play this run on the map
       </button>
     </>
@@ -824,7 +826,7 @@ function Garage({ choice, live }: PageProps) {
         <p className="lk-g-label">Recorded runs</p>
         <div className="lk-g-runs">
           {runs.runs.map((r) => (
-            <button type="button" key={r.key} className="lk-g-card lk-g-run" onClick={() => (playRun(r.key, "card"), document.getElementById("map")?.scrollIntoView({ behavior: motion ? "smooth" : "auto", block: "start" }))}>
+            <button type="button" key={r.key} className="lk-g-card lk-g-run" data-ex={r.key} onClick={() => (playRun(r.key, "card"), document.getElementById("map")?.scrollIntoView({ behavior: motion ? "smooth" : "auto", block: "start" }))}>
               <b>{titleOf(r.key)}</b>
               <span className={`lk-g-st${r.caught ? " bad" : ""}`}>{runLine(r.key)}</span>
             </button>

@@ -4,8 +4,7 @@
 // the rules check that refund and order requests end in one, and the eval counts them.
 //
 // In this demo the ticket is returned to the page to show what a human agent would
-// receive, and it is not stored. Live visitors' questions are not kept anywhere,
-// and a ticket would be the one place they could leak into.
+// receive, and it is not stored.
 
 import { randomBytes } from "node:crypto";
 

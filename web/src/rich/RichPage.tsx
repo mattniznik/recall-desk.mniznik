@@ -171,7 +171,7 @@ function Terminal() {
       </div>
       <div className="runs" role="group" aria-label="Recorded runs">
         {TERM_RUNS.map((k) => (
-          <button type="button" key={k} aria-pressed={k === key} onClick={() => setKey(k)}>
+          <button type="button" key={k} aria-pressed={k === key} data-ex={k} onClick={() => setKey(k)}>
             {titleOf(k)}
           </button>
         ))}

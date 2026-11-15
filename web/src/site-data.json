@@ -1,9 +1,9 @@
 {
   "tests": {
-    "tests": 234,
-    "pass": 234,
+    "tests": 239,
+    "pass": 239,
     "fail": 0,
-    "files": 39,
+    "files": 40,
     "ruleFiles": 6,
     "method": "ran npm test's files with node --test and read its totals"
   },
@@ -189,7 +189,7 @@
       {
         "title": "Write the test, watch it fail",
         "text": "Each change starts with a test, and it has to fail on the old code for the reason expected before the code is written.",
-        "fact": "234 tests in 39 files, all passing",
+        "fact": "239 tests in 40 files, all passing",
         "url": "https://github.com/mattniznik/recall-desk.mniznik/tree/main/test"
       },
       {

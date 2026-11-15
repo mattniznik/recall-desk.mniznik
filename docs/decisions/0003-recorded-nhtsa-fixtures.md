@@ -59,8 +59,8 @@ recording necessary:
 - **Live NHTSA in tests.** Results would depend on the day and on NHTSA being up, and CI would make network calls.
 - **Hand-written stubs.** They encode the developer's idea of NHTSA's data. The recordings carry the real quirks:
   "Ranger trucks", body styles named only in prose, a VIN on every complaint.
-- **Recording every question visitors ask.** Live visitors' questions and answers are not stored at all
-  ([SECURITY.md](../../SECURITY.md)); the recorded runs on the page come from development.
+- **Recording every question visitors ask.** The recorded runs on the page come from development, never from a
+  visitor's question.
 
 ## What would change it
 

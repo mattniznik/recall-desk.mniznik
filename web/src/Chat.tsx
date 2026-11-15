@@ -14,6 +14,7 @@ import { toSteps } from "./trace.ts";
 import { TracePanel } from "./TracePanel.tsx";
 import { AnswerCard } from "./AnswerCard.tsx";
 import { publish } from "./map-feed.ts";
+import { trackAnswer, trackAsked } from "./track.ts";
 
 type Turnstile = { render(el: HTMLElement, opts: Record<string, unknown>): string; reset(id?: string): void };
 declare global {
@@ -87,13 +88,17 @@ export function Chat({ live }: { live: boolean | null }) {
     setExchanges((all) => [...all, { question: q, events: [], state: "streaming" }]);
     setQuestion("");
     human.reset();
+    trackAsked();
+    const started = Date.now();
 
     let failed = false;
     let ended = false;
+    const seen: AskEvent[] = [];
     const push = (e: AskEvent) => {
       if (e.type === "start") setLeft(e.left);
       if (e.type === "error") failed = true;
       if (e.type === "done" || e.type === "error") ended = true;
+      seen.push(e);
       update(i, (x) => ({ ...x, events: [...x.events, e] }));
     };
     try {
@@ -120,6 +125,7 @@ export function Chat({ live }: { live: boolean | null }) {
       push({ type: "error", code: "failed", message: "The answer could not be loaded. Try again." });
     }
     update(i, (x) => ({ ...x, state: failed ? "error" : "done" }));
+    trackAnswer(q, seen, Date.now() - started);
   }
 
   if (live === null) return <p className="left">Checking whether live answers are on...</p>;
@@ -151,6 +157,7 @@ export function Chat({ live }: { live: boolean | null }) {
         <div className={busy ? "askring fast" : "askring"}>
           <textarea
             id="q"
+            data-clarity-mask="true"
             value={question}
             maxLength={CHAT_LIMITS.questionChars}
             placeholder="e.g. 2015 Jeep Cherokee or 2015 Honda CR-V, which is safer?"
@@ -188,7 +195,7 @@ function WhatToTry({ onPick }: { onPick: (question: string) => void }) {
           <h3>{g.group}</h3>
           <div className="replays">
             {g.items.map((i) => (
-              <button type="button" key={i.question} title={i.question} onClick={() => onPick(i.question)}>
+              <button type="button" key={i.question} title={i.question} data-sample={i.label} onClick={() => onPick(i.question)}>
                 {i.label}
               </button>
             ))}
@@ -205,7 +212,7 @@ function ExchangeView({ x }: { x: Exchange }) {
   const error = x.events.find((e) => e.type === "error");
   const done = x.events.find((e) => e.type === "done");
   return (
-    <section className="exchange">
+    <section className="exchange" data-clarity-mask="true">
       <p className="question">{x.question}</p>
       {steps.length > 0 && (
         <div className="work">

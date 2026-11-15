@@ -354,7 +354,7 @@ An earlier 3-case smoke run on Haiku, before the full runs, is kept in
   fail, recorded data in tests, never the standard API key variable, every number with its n, and the code rules
   are the product. Each rule points to a file that shows it.
 - **[SECURITY.md](SECURITY.md)**: prompt injection through complaint text and chat history, made-up recalls, the
-  API bill and bots, keys, visitor privacy (a salted IP hash, never the question), and the known gaps.
+  API bill and bots, keys, visitor privacy, and the known gaps.
 - **[docs/DEPLOY.md](docs/DEPLOY.md)**: the AWS and Cloudflare pieces, at the level of services.
 
 ## CI
@@ -362,7 +362,7 @@ An earlier 3-case smoke run on Haiku, before the full runs, is kept in
 [.github/workflows/ci.yml](.github/workflows/ci.yml) runs one job on every push and pull request, on Ubuntu with
 Node 22. It uses no secrets and calls no model; every test that touches NHTSA uses the recordings.
 
-- **`npm test`: 230 tests in 39 files** with Node's own runner (`node --test`, TypeScript run through type
+- **`npm test`: 239 tests in 40 files** with Node's own runner (`node --test`, TypeScript run through type
   stripping):
   - tools on the recorded NHTSA data, the catalog, the handoff and the terminal client: 45
   - the six rules: 38
@@ -382,7 +382,7 @@ Node 22. It uses no secrets and calls no model; every test that touches NHTSA us
 
 ```bash
 npm ci
-npm test                                                  # 230 tests, recordings only, no model
+npm test                                                  # 239 tests, recordings only, no model
 npm run ask -- --samples --offline                        # what the agent reads for the 3 sample questions
 npm run ask -- get_recalls --make Honda --model Civic --year 2017   # one tool against live NHTSA
 npm run web:dev                                           # the page on localhost; Ask plays recorded runs back
@@ -556,8 +556,7 @@ the one-column ones. It opens a drawer (a bottom sheet on a phone) with the layo
 typefaces. A pick is saved in the visitor's browser (`localStorage`, key `recall-desk-choice`) and the page
 reloads into it, with the panel open where it was; "Back to the default" clears it. A link such as
 [`?layout=08`](https://recall-desk.mniznik.com/?layout=08) shows a layout without saving it, and the panel says
-whether the look on screen came from a link, a saved pick or the default. Nothing about the pick is sent anywhere:
-the page has no analytics or visit events.
+whether the look on screen came from a link, a saved pick or the default.
 
 **How the page is put together** ([web/src/](web/src/)):
 

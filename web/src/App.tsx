@@ -105,11 +105,11 @@ function Demo() {
     <>
       <nav className="replays" aria-label="Replays">
         {REPLAYS.map((r) => (
-          <button key={r.key} className={r.key === current.key ? "on" : ""} aria-pressed={r.key === current.key} onClick={() => setCurrent(r)}>
+          <button key={r.key} className={r.key === current.key ? "on" : ""} aria-pressed={r.key === current.key} data-ex={r.key} onClick={() => setCurrent(r)}>
             {r.title}
           </button>
         ))}
-        <button onClick={() => setRun((n) => n + 1)}>Replay</button>
+        <button data-again={current.key} onClick={() => setRun((n) => n + 1)}>Replay</button>
       </nav>
 
       <p className={current.replay.real ? "label real" : "label"}>{current.replay.label}</p>

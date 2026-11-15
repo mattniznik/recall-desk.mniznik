@@ -1,7 +1,7 @@
 // create_handoff is how the agent stops and passes a customer to a person: refunds,
 // order problems, an upset customer, a safety worry, or a question it could not answer
 // from its tools. The ticket goes back to the page to show what a human agent would
-// receive. It is not stored anywhere, because live visitors' words are not kept.
+// receive. The function does not store it.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
