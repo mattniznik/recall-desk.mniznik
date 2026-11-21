@@ -18,7 +18,7 @@ questions each on Claude Haiku 5.5, Sonnet 5.5 and Opus 5.5, passed 44, 46 and 5
 **A system map, and a customizable page.** Every layout shows the whole system as one map that lights up, piece by
 piece, as a recorded or live answer plays, with a 16-step tour of the run where the safety rule sent the first
 answer back. The demo comes in 12 layouts, 21 colour sets and 15 typefaces, with the same answers and numbers in
-all of them; the default is layout 01, Ask anything. The **Studio** button lets a visitor pick a look, and the pick
+all of them; the default is layout 10, Run canvas, in daylight colours. The **Studio** button lets a visitor pick a look, and the pick
 is saved in their browser for the next visit. See [Design](#design-on-the-web-and-on-a-phone).
 
 <a href="https://recall-desk.mniznik.com"><img alt="The system map on the live demo playing a real recorded run, the park-it recall: each piece lights up as the agent works, the rules send the first answer back because the safety warning is missing, and the corrected answer is shown with its 12 recalls cited. A caption under the map names each of the 10 steps." src="docs/img/system-map.gif" width="760"></a>
@@ -459,7 +459,7 @@ layout (`?layout=NN`) on the live site.
 <td><a href="https://recall-desk.mniznik.com/?layout=01"><img alt="Layout 01, Ask anything, on the web at 1280 pixels" src="docs/img/layouts/layout-01-1280.jpeg" width="600"></a></td>
 <td align="center"><a href="https://recall-desk.mniznik.com/?layout=01"><img alt="Layout 01, Ask anything, on a phone at 390 pixels" src="docs/img/layouts/layout-01.jpeg" width="200"></a></td>
 </tr>
-<tr><td colspan="2"><b>01 Ask anything</b> (the default layout, shown in the default look). The chat up front, each answer with its trace right under it, then a field of dots that shows one real run.</td></tr>
+<tr><td colspan="2"><b>01 Ask anything</b>. The chat up front, each answer with its trace right under it, then a field of dots that shows one real run.</td></tr>
 <tr>
 <td><a href="https://recall-desk.mniznik.com/?layout=04"><img alt="Layout 04, Under the hood, on the web at 1280 pixels" src="docs/img/layouts/layout-04-1280.jpeg" width="600"></a></td>
 <td align="center"><a href="https://recall-desk.mniznik.com/?layout=04"><img alt="Layout 04, Under the hood, on a phone at 390 pixels" src="docs/img/layouts/layout-04.jpeg" width="200"></a></td>
@@ -494,7 +494,7 @@ layout (`?layout=NN`) on the live site.
 <td><a href="https://recall-desk.mniznik.com/?layout=10"><img alt="Layout 10, Run canvas, on the web at 1280 pixels" src="docs/img/layouts/layout-10-1280.jpeg" width="600"></a></td>
 <td align="center"><a href="https://recall-desk.mniznik.com/?layout=10"><img alt="Layout 10, Run canvas, on a phone at 390 pixels" src="docs/img/layouts/layout-10.jpeg" width="200"></a></td>
 </tr>
-<tr><td colspan="2"><b>10 Run canvas</b>. A workflow canvas: the recorded runs in a rail, the system map in the middle lighting up step by step, the desk as its log panel.</td></tr>
+<tr><td colspan="2"><b>10 Run canvas</b> (the default layout, shown in the default look: Canvas, daylight with Geist and Geist Mono). A workflow canvas: the recorded runs in a rail, the system map in the middle lighting up step by step, the desk as its log panel.</td></tr>
 <tr>
 <td><a href="https://recall-desk.mniznik.com/?layout=11"><img alt="Layout 11, Trace waterfall, on the web at 1280 pixels" src="docs/img/layouts/layout-11-1280.jpeg" width="600"></a></td>
 <td align="center"><a href="https://recall-desk.mniznik.com/?layout=11"><img alt="Layout 11, Trace waterfall, on a phone at 390 pixels" src="docs/img/layouts/layout-11.jpeg" width="200"></a></td>
@@ -525,9 +525,11 @@ layout (`?layout=NN`) on the live site.
 The web pictures are 1280 by 800 captures of the live site on 2026-11-14, where the desk opens on Ask. The phone
 pictures are 390 by 844 captures of the production build served locally with `vite preview` the same day; with
 no server behind that copy, live answers are off and the desk opens on the Examples, as it does whenever live
-answers are off. The 01 pair is the exception: both are from the live site's bare address on 2026-11-15, so they
-show the default look. Every other pair comes from a `?layout=` link, which shows a layout in its own colours and
-type.
+answers are off. Three pairs were retaken on 2026-11-21, when the default changed, from the production build served
+locally with `vite preview`, with its status call answered as the live site answered it that day (live answers
+on), so the desk opens on Ask as it does live: the 10 pair and the Studio pair from the bare address, so they show
+the default look, and the 01 pair from `?layout=01`. Every pair except 10 and the Studio comes from a `?layout=`
+link, which shows a layout in its own colours and type.
 
 **The desk** is the same in every layout ([web/src/App.tsx](web/src/App.tsx)), with three tabs:
 
@@ -561,8 +563,8 @@ whether the look on screen came from a link, a saved pick or the default.
 **How the page is put together** ([web/src/](web/src/)):
 
 - [studio/presets.ts](web/src/studio/presets.ts) holds the 12 layouts, 21 colour sets, 15 typefaces and the
-  default: layout 01, Ask anything, in "Golden hour on paper" with Plus Jakarta Sans and IBM Plex Mono,
-  chosen on 2026-11-15.
+  default: layout 10, Run canvas, in "Canvas, daylight" with Geist and Geist Mono, chosen on 2026-11-21
+  (before that, from 2026-11-15, layout 01 in "Golden hour on paper" with Plus Jakarta Sans).
 - Before anything else, an inline script from [studio/boot.ts](web/src/studio/boot.ts) paints the background of the
   look about to show, so a dark look does not flash white, and keeps the page hidden until it has rendered, or
   6 seconds at most.

@@ -68,9 +68,10 @@ export const OPTIONS: Option[] = [
   { id: "14", name: "Status cards", short: "Friendly, like a car app: each piece of the agent as a card with its status. Tap one to find it on the map.", cfg: { look: "garage", palette: "garage", font: "outfit" } },
 ];
 
-// What a first-time visitor sees: Ask anything on Golden hour on paper with Plus Jakarta Sans + IBM Plex
-// Mono (chosen 2026-11-15; before that Run canvas, layout 10, with Barlow Condensed caps).
-export const DEFAULT = { option: "01", palette: "coverPaper", font: "jakarta" };
+// What a first-time visitor sees: Run canvas (layout 10) on Canvas, daylight with Geist + Geist Mono
+// (chosen 2026-11-21; from 2026-11-15 Ask anything on Golden hour on paper with Plus Jakarta Sans,
+// before that Run canvas with Barlow Condensed caps).
+export const DEFAULT = { option: "10", palette: "canvasDay", font: "geist" };
 
 export const PALETTES: Record<string, Palette> = {
   coverDark: { name: "Golden hour on black", bg: "#070708", card: "#141416", card2: "#1b1b1e", line: "#26262c", tx: "#f3f3f5", mu: "#9a9aa3", a1: "#f4a83a", a2: "#ec8050", a3: "#d55c82", acc: "#f4a83a", on: "#111111", mark: "rgba(244,168,58,.28)" },

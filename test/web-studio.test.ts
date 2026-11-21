@@ -67,11 +67,12 @@ test("every palette meets the contrast it claims", () => {
   }
 });
 
-// The default (chosen 2026-11-15) is Ask anything (01) with Golden hour on paper and Plus
-// Jakarta Sans + IBM Plex Mono; before that it was Run canvas (10) with Barlow Condensed caps.
-test("fifteen font pairings; the default is Ask anything on golden hour on paper with Plus Jakarta Sans", () => {
+// The default (chosen 2026-11-21) is Run canvas (10) on Canvas, daylight with Geist + Geist Mono;
+// before that, from 2026-11-15, Ask anything (01) on Golden hour on paper with Plus Jakarta Sans,
+// and before that Run canvas (10) with Barlow Condensed caps.
+test("fifteen font pairings; the default is Run canvas on Canvas, daylight with Geist", () => {
   assert.equal(Object.keys(FONTS).length, 15);
-  assert.deepEqual(DEFAULT, { option: "01", palette: "coverPaper", font: "jakarta" });
+  assert.deepEqual(DEFAULT, { option: "10", palette: "canvasDay", font: "geist" });
   assert.match(FONTS.condensed.head, /Barlow Condensed/);
   assert.match(FONTS.condensed.body, /DM Sans/);
   assert.equal(FONTS.condensed.caps, true);
@@ -90,8 +91,8 @@ test("a ?layout= link is shown and says it came from a link", () => {
 
 test("without a link the saved pick shows; without either, the default", () => {
   assert.deepEqual(resolve("", { option: "08", palette: "lime", font: "inter" }), { option: "08", palette: "lime", font: "inter", source: "saved" });
-  assert.deepEqual(resolve(""), { option: "01", palette: "coverPaper", font: "jakarta", source: "default" });
-  assert.deepEqual(resolve("?layout=99"), { option: "01", palette: "coverPaper", font: "jakarta", source: "default" });
+  assert.deepEqual(resolve(""), { option: "10", palette: "canvasDay", font: "geist", source: "default" });
+  assert.deepEqual(resolve("?layout=99"), { option: "10", palette: "canvasDay", font: "geist", source: "default" });
   assert.equal(resolve("", { option: "99" }).source, "default");
 });
 
